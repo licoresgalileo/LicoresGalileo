@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Productos - Licores Galileo</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            margin:0;
+            background:#f4f4f4;
+        }
+
+        header{
+            background:#6b0000;
+            color:white;
+            padding:15px;
+            text-align:center;
+        }
+
+        .contenedor{
+            display:flex;
+            flex-wrap:wrap;
+            justify-content:center;
+            gap:20px;
+            padding:30px;
+        }
+
+        .producto{
+            width:250px;
+            background:white;
+            border-radius:10px;
+            overflow:hidden;
+            box-shadow:0 0 10px rgba(0,0,0,0.2);
+            text-align:center;
+        }
+
+        .producto img{
+            width:100%;
+            height:250px;
+            object-fit:cover;
+        }
+
+        .producto h3{
+            margin:10px 0;
+        }
+
+        .precio{
+            color:#6b0000;
+            font-size:20px;
+            font-weight:bold;
+        }
+
+        .btn{
+            display:inline-block;
+            margin:15px;
+            padding:10px 20px;
+            background:#6b0000;
+            color:white;
+            text-decoration:none;
+            border-radius:5px;
+        }
+
+        .btn:hover{
+            background:#8b0000;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Productos - Licores Galileo</h1>
+</header>
+
+<div class="contenedor">
+
+    <div class="producto">
+        <img src="imagenes/whisky.jpg" alt="Whisky">
+        <h3>Whisky Johnnie Walker</h3>
+        <p class="precio">Q250.00</p>
+        <a href="#" class="btn">Ver más</a>
+    </div>
+
+    <div class="producto">
+        <img src="imagenes/ron.jpg" alt="Ron">
+        <h3>Ron Zacapa</h3>
+        <p class="precio">Q350.00</p>
+        <a href="#" class="btn">Ver más</a>
+    </div>
+
+    <div class="producto">
+        <img src="imagenes/vino.jpg" alt="Vino">
+        <h3>Vino Tinto Reserva</h3>
+        <p class="precio">Q180.00</p>
+        <a href="#" class="btn">Ver más</a>
+    </div>
+
+</div>
+
+</body>
+</html>
