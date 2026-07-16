@@ -105,6 +105,73 @@
         <a href="#" class="btn">Ver Catálogo</a>
     </section>
 
+    <!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Animación de 4 Imágenes</title>
+
+<style>
+
+body{
+    margin:0;
+    overflow:hidden;
+    background:#1e1e1e;
+}
+
+/* Estilo general de las imágenes */
+.imagen{
+    position:absolute;
+    width:180px;
+    animation:mover 300s linear infinite;
+}
+
+/* Posición vertical y separación de cada imagen */
+.imagen1{
+    top:10%;
+    animation-delay:0s;
+}
+
+.imagen2{
+    top:30%;
+    animation-delay:-75s;
+}
+
+.imagen3{
+    top:55%;
+    animation-delay:-150s;
+}
+
+.imagen4{
+    top:75%;
+    animation-delay:-225s;
+}
+
+/* Animación de derecha a izquierda */
+@keyframes mover{
+    from{
+        left:100%;
+    }
+    to{
+        left:-220px;
+    }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<img src="img1.png" class="imagen imagen1" alt="Imagen 1">
+<img src="img2.png" class="imagen imagen2" alt="Imagen 2">
+<img src="img3.png" class="imagen imagen3" alt="Imagen 3">
+<img src="img4.png" class="imagen imagen4" alt="Imagen 4">
+
+</body>
+</html>
+
 <style>
 .footer-galileo{
     background: linear-gradient(135deg, #6b0000, #8b0000);
