@@ -199,73 +199,87 @@
 
 </a>
 
-
-
-    
-   
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Carrusel automático</title>
+<title>Carrusel</title>
 
 <style>
 
+body{
+    font-family: Arial, sans-serif;
+}
+
+h2{
+    text-align:center;
+}
+
 .carrusel{
     position:relative;
-    width:600px;      /* Ancho del carrusel */
-    height:350px;     /* Alto del carrusel */
+    width:600px;
+    height:350px;
     margin:auto;
     overflow:hidden;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,.3);
 }
 
-.carrusel img{
-    position:absolute;
+.carrusel-contenedor{
+    display:flex;
     width:100%;
     height:100%;
+    transition:transform .6s ease-in-out;
+}
+
+.carrusel-contenedor img{
+    min-width:100%;
+    height:100%;
     object-fit:cover;
-    opacity:0;
-    animation:slider 28s infinite;
 }
 
-/* Cada imagen comienza en un momento diferente */
-.carrusel img:nth-child(1){
-    animation-delay:0s;
+/* Flechas */
+
+.anterior,
+.siguiente{
+
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+
+    background:rgba(0,0,0,.5);
+    color:white;
+
+    border:none;
+    cursor:pointer;
+
+    font-size:30px;
+
+    width:45px;
+    height:45px;
+
+    border-radius:50%;
+
+    transition:.3s;
+
 }
 
-.carrusel img:nth-child(2){
-    animation-delay:7s;
+.anterior:hover,
+.siguiente:hover{
+
+    background:#800020;
+
 }
 
-.carrusel img:nth-child(3){
-    animation-delay:14s;
+.anterior{
+
+    left:10px;
+
 }
 
-.carrusel img:nth-child(4){
-    animation-delay:21s;
-}
+.siguiente{
 
-@keyframes slider{
-
-0%{
-    opacity:0;
-}
-
-5%{
-    opacity:1;
-}
-
-25%{
-    opacity:1;
-}
-
-30%{
-    opacity:0;
-}
-
-100%{
-    opacity:0;
-}
+    right:10px;
 
 }
 
@@ -278,13 +292,84 @@
 <h2>Noticias</h2>
 
 <div class="carrusel">
-    <img src="img1.jpeg" alt="">
-    <img src="img2.jpeg" alt="">
-    <img src="img3.webp" alt="">
-    <img src="img4.webp" alt="">
+
+    <div class="carrusel-contenedor">
+
+        <img src="img1.jpeg">
+        <img src="img2.jpeg">
+        <img src="img3.webp">
+        <img src="img4.webp">
+
+    </div>
+
+    <button class="anterior">&#10094;</button>
+    <button class="siguiente">&#10095;</button>
+
 </div>
+
+<script>
+
+const contenedor = document.querySelector(".carrusel-contenedor");
+const imagenes = document.querySelectorAll(".carrusel-contenedor img");
+
+let indice = 0;
+
+function actualizar(){
+
+    contenedor.style.transform = `translateX(-${indice*100}%)`;
+
+}
+
+document.querySelector(".siguiente").onclick = ()=>{
+
+    indice++;
+
+    if(indice>=imagenes.length){
+
+        indice=0;
+
+    }
+
+    actualizar();
+
+}
+
+document.querySelector(".anterior").onclick = ()=>{
+
+    indice--;
+
+    if(indice<0){
+
+        indice=imagenes.length-1;
+
+    }
+
+    actualizar();
+
+}
+
+/* Cambio automático */
+
+setInterval(()=>{
+
+    indice++;
+
+    if(indice>=imagenes.length){
+
+        indice=0;
+
+    }
+
+    actualizar();
+
+},7000);
+
+</script>
+
 </body>
 </html>
+
+    
 
 
 <style>
