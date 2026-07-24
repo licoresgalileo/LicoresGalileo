@@ -199,6 +199,9 @@
 
 </a>
 
+
+
+<h2>Noticias</h2>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -291,56 +294,84 @@ h2{
 
 <h2>Noticias</h2>
 
-<div class="carrusel-contenedor">
+<div class="carrusel">
 
-    <img src="img1.jpeg">
-    <img src="img2.jpeg">
-    <img src="img3.webp">
-    <img src="img4.webp">
+    <div class="carrusel-contenedor">
 
-    <!-- Copia de la primera -->
-    <img src="img1.jpeg">
+        <img src="img1.jpeg">
+        <img src="img2.jpeg">
+        <img src="img3.webp">
+        <img src="img4.webp">
+
+    </div>
+
+    <button class="anterior">&#10094;</button>
+    <button class="siguiente">&#10095;</button>
 
 </div>
 
 <script>
-            const contenedor = document.querySelector(".carrusel-contenedor");
+
+const contenedor = document.querySelector(".carrusel-contenedor");
 const imagenes = document.querySelectorAll(".carrusel-contenedor img");
 
 let indice = 0;
 
-function mover(){
-
-    contenedor.style.transition = "transform .8s ease";
+function actualizar(){
 
     contenedor.style.transform = `translateX(-${indice*100}%)`;
 
 }
 
-function siguiente(){
+document.querySelector(".siguiente").onclick = ()=>{
 
     indice++;
 
-    mover();
-
-}
-
-setInterval(siguiente,5000);
-
-contenedor.addEventListener("transitionend",()=>{
-
-    if(indice===imagenes.length-1){
-
-        contenedor.style.transition="none";
+    if(indice>=imagenes.length){
 
         indice=0;
 
-        contenedor.style.transform="translateX(0)";
+    }
+
+    actualizar();
+
+}
+
+document.querySelector(".anterior").onclick = ()=>{
+
+    indice--;
+
+    if(indice<0){
+
+        indice=imagenes.length-1;
 
     }
 
-});
-            
+    actualizar();
+
+}
+
+/* Cambio automático */
+
+setInterval(()=>{
+
+    indice++;
+
+    if(indice>=imagenes.length){
+
+        indice=0;
+
+    }
+
+    actualizar();
+
+},7000);
+
+</script>
+
+</body>
+</html>
+ 
 </script>
     
 </body>
