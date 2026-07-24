@@ -304,42 +304,29 @@ h2{
 </div>
 
 <script>
-const contenedor = document.querySelector(".carrusel-contenedor");
-const imagenes = document.querySelectorAll(".carrusel-contenedor img");
-
-let indice = 0;
-
-function mover(){
-
-    contenedor.style.transition = "transform .8s ease";
-
-    contenedor.style.transform = `translateX(-${indice*100}%)`;
-
-}
-
 function siguiente(){
 
-    indice++;
+    if(indice == imagenes.length - 1){
 
-    mover();
+        indice = 0;
 
-}
+        contenedor.style.transition = "none";
+        contenedor.style.transform = "translateX(0)";
 
-setInterval(siguiente,5000);
+        setTimeout(()=>{
 
-contenedor.addEventListener("transitionend",()=>{
+            contenedor.style.transition = "transform .8s ease";
 
-    if(indice===imagenes.length-1){
+        },20);
 
-        contenedor.style.transition="none";
+    }else{
 
-        indice=0;
-
-        contenedor.style.transform="translateX(0)";
+        indice++;
+        actualizar();
 
     }
 
-});
+}
 </script>
 
 </body>
