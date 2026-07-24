@@ -1,207 +1,292 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Licores Galileo</title>
-
-    <style>
-        *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
-            font-family: Arial, sans-serif;
-        }
-
-        body{
-            background-color:#f4f4f4;
-        }
-
-        header{
-            background:#6b0000;
-            color:white;
-            padding:15px 30px;
-            display:flex;
-            justify-content:space-between;
-            align-items:center;
-        }
-
-        .logo{
-            font-size:28px;
-            font-weight:bold;
-        }
-
-        nav ul{
-            list-style:none;
-            display:flex;
-        }
-
-        nav ul li{
-            margin-left:20px;
-        }
-
-        nav ul li a{
-            color:white;
-            text-decoration:none;
-            font-size:18px;
-            transition:0.3s;
-        }
-
-        nav ul li a:hover{
-            color:#ffd700;
-        }
-
-        .hero{
-            text-align:center;
-            padding:100px 20px;
-        }
-
-        .hero h1{
-            font-size:48px;
-            color:#6b0000;
-        }
-
-        .hero p{
-            margin-top:15px;
-            font-size:20px;
-            color:#555;
-        }
-
-        .btn{
-            display:inline-block;
-            margin-top:25px;
-            padding:12px 25px;
-            background:#6b0000;
-            color:white;
-            text-decoration:none;
-            border-radius:5px;
-        }
-
-        .btn:hover{
-            background:#8b0000;
-        }
-    </style>
-</head>
-<body>
-
-    <header>
-        <div class="logo"></div>
-
-        <nav>
-            <ul>
-                 <li><a href="index.html">Inicio</a></li>
-                <li><a href="noticias.html">Noticias</a></li>
-                <li><a href="productos.html">Productos</a></li>
-                <li><a href="info.html">Sobre Nosotros</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-                <li><a href="ubi.html">Ubicaciones</a></li>
-                 <li><a href="pregunta.html">Preguntas frecuentes</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <section class="hero">
-        <h1>Bienvenido a Licores Galileo</h1>
-        <p>Encuentra las mejores bebidas al mejor precio.</p>
-        <a href="#" class="btn">Ver Catálogo</a>
-    </section>
-
-
-
-
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Noticias | Licores Galileo</title>
 
 <style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f4f4f4;
+}
+
+/*================ HEADER ================*/
+
+header{
+    background:#6b0000;
+    color:white;
+    padding:15px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:bold;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+}
+
+nav ul li{
+    margin-left:20px;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    font-size:18px;
+    transition:.3s;
+}
+
+nav ul li a:hover{
+    color:#ffd700;
+}
+
+/*================ TITULO ================*/
+
+.hero{
+    text-align:center;
+    padding:70px 20px;
+}
+
+.hero h1{
+    color:#6b0000;
+    font-size:45px;
+}
+
+.hero p{
+    color:#555;
+    font-size:18px;
+    margin-top:10px;
+}
+
+/*================ SECCIONES ================*/
+
+.contenedor{
+    max-width:1100px;
+    margin:auto;
+    padding:20px;
+}
+
+.tarjeta{
+    background:white;
+    border-radius:10px;
+    padding:25px;
+    margin-bottom:40px;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+
+.tarjeta h2{
+    color:#6b0000;
+    margin-bottom:15px;
+}
+
+.tarjeta img{
+    width:100%;
+    max-height:400px;
+    object-fit:cover;
+    border-radius:10px;
+    margin:20px 0;
+}
+
+.tarjeta p{
+    color:#555;
+    line-height:1.8;
+    text-align:justify;
+}
+
+/*================ FOOTER ================*/
+
 .footer-galileo{
-    background: linear-gradient(135deg, #6b0000, #8b0000);
-    color: white;
-    text-align: center;
-    padding: 50px 20px;
-    margin-top: 60px;
-    font-family: Arial, sans-serif;
+    background:linear-gradient(135deg,#6b0000,#8b0000);
+    color:white;
+    text-align:center;
+    padding:50px 20px;
+    margin-top:60px;
 }
 
 .footer-contenido{
-    max-width: 900px;
-    margin: auto;
+    max-width:900px;
+    margin:auto;
 }
 
 .footer-galileo h2{
-    font-size: 32px;
-    margin-bottom: 15px;
+    margin-bottom:15px;
 }
 
 .footer-galileo p{
-    font-size: 16px;
-    margin-bottom: 20px;
+    margin-bottom:20px;
 }
 
 .redes-sociales{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
-    margin-bottom: 25px;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:20px;
 }
 
 .redes-sociales a{
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: bold;
-    padding: 10px 15px;
-    border-radius: 8px;
-    transition: 0.3s;
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
 }
 
 .redes-sociales a:hover{
-    background: rgba(255,255,255,0.15);
-    color: #ffd700;
+    color:#ffd700;
 }
 
 .footer-galileo hr{
-    border: none;
-    height: 1px;
-    background: rgba(255,255,255,0.3);
-    margin: 25px auto;
-    width: 80%;
+    margin:25px auto;
+    width:80%;
 }
 
 .copyright{
-    font-size: 14px;
-    opacity: 0.9;
+    margin-top:20px;
 }
+
 </style>
 
-  
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+Licores Galileo
+</div>
+
+<nav>
+<ul>
+<li><a href="index.html">Inicio</a></li>
+<li><a href="noticias.html">Noticias</a></li>
+<li><a href="productos.html">Productos</a></li>
+<li><a href="info.html">Sobre Nosotros</a></li>
+<li><a href="contacto.html">Contacto</a></li>
+<li><a href="ubi.html">Ubicaciones</a></li>
+<li><a href="pregunta.html">Preguntas frecuentes</a></li>
+</ul>
+</nav>
+
+</header>
+
+<section class="hero">
+
+<h1>Noticias y Novedades</h1>
+
+<p>
+Mantente informado sobre las últimas novedades de Licores Galileo.
+</p>
+
+</section>
+
+<div class="contenedor">
+
+<!-- ================= ARTÍCULO PRINCIPAL ================= -->
+
+<div class="tarjeta">
+
+<h2>Noticias</h2>
+
+<!-- AQUÍ COLOCA TU IMAGEN -->
+<img src="imagenes/noticia.jpg" alt="Noticia">
+
+<p>
+
+Aquí puedes escribir un artículo completo sobre alguna noticia importante de la empresa.
+
+Puedes hablar sobre eventos, promociones, participación en actividades, crecimiento del negocio o cualquier información que desees compartir con tus clientes.
+
+Este apartado está pensado para funcionar como una noticia destacada.
+
+</p>
+
+</div>
+
+<!-- ================= NUEVOS LICORES ================= -->
+
+<div class="tarjeta">
+
+<h2>Nuevos Licores</h2>
+
+<!-- AQUÍ COLOCA TU IMAGEN -->
+<img src="imagenes/licor.jpg" alt="Nuevo Licor">
+
+<p>
+
+En esta sección podrás presentar los nuevos productos que llegan a Licores Galileo.
+
+Puedes agregar información como la marca, el tipo de licor, su origen, características, promociones especiales o disponibilidad.
+
+</p>
+
+</div>
+
+<!-- ================= CAPACITACIONES ================= -->
+
+<div class="tarjeta">
+
+<h2>Capacitaciones</h2>
+
+<!-- AQUÍ COLOCA TU IMAGEN -->
+<img src="imagenes/capacitacion.jpg" alt="Capacitación">
+
+<p>
+
+Comparte fotografías e información sobre las capacitaciones que recibe el personal de Licores Galileo.
+
+Esto demuestra el compromiso de la empresa con el servicio al cliente, el conocimiento de sus productos y la mejora continua.
+
+</p>
+
+</div>
+
+</div>
 
 <footer class="footer-galileo">
-    <div class="footer-contenido">
 
-        <h2> Licores Galileo</h2>
+<div class="footer-contenido">
 
-        <p>
-            Síguenos en nuestras redes sociales y mantente al día con nuestras promociones,
-            nuevos productos y ofertas especiales.
-        </p>
+<h2>Licores Galileo</h2>
 
-        <div class="redes-sociales">
-            <a href="https://www.facebook.com/TU_PAGINA" target="_blank"> Facebook</a>
+<p>
+Síguenos en nuestras redes sociales y conoce nuestras promociones.
+</p>
 
-            <a href="https://www.instagram.com/TU_USUARIO" target="_blank"> Instagram</a>
+<div class="redes-sociales">
 
-            <a href="https://www.youtube.com/channel/UCom0V_9iwCmQDSCvG2pvzBA" target="_blank">YouTube</a>
+<a href="https://www.facebook.com/TU_PAGINA" target="_blank">Facebook</a>
 
-            <a href="mailto:correo@licoresgalileo.com">Correo contacto: licoresgalileo@gmail.com </a>
-        </div>
+<a href="https://www.instagram.com/TU_USUARIO" target="_blank">Instagram</a>
 
-        <hr>
+<a href="https://www.youtube.com/channel/UCom0V_9iwCmQDSCvG2pvzBA" target="_blank">YouTube</a>
 
-        <p class="copyright">
-            © 2026 Licores Galileo | Todos los derechos reservados
-        </p>
+<a href="mailto:licoresgalileo@gmail.com">
+Correo: licoresgalileo@gmail.com
+</a>
 
-    </div>
+</div>
+
+<hr>
+
+<p class="copyright">
+© 2026 Licores Galileo | Todos los derechos reservados
+</p>
+
+</div>
+
 </footer>
 
 </body>
