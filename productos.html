@@ -360,9 +360,14 @@
   }
 
   function procederPago() {
-    alert("https://www.paypal.com/paypalme/ervin2001GT");
-    // Aquí puedes redirigir a una página de pago real o integrar un SDK
-  }
+  // Calculamos el total del carrito
+    let total = carrito.reduce((acc, item) => acc + (item.precio * item.cantidad), 0);
+
+    // Concatenamos el total al link de PayPal.Me
+    let paypalLink = "https://www.paypal.com/paypalme/ervin2001GT/" + total;
+
+    // Redirigimos al usuario al pago
+    window.location.href = paypalLink;
 </script>
 
 </body>
