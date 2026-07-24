@@ -318,6 +318,8 @@
     <button class="btn-overlay" onclick="cerrarCarrito()">Cerrar</button>
   </div>
 </div>
+<!-- Botón en el overlay -->
+<button class="btn-overlay" onclick="procederPago()">Proceder al pago</button>
 
 <script>
   let carrito = [];
@@ -360,7 +362,7 @@
   }
 
   function procederPago() {
-  // Calculamos el total del carrito
+    // Calculamos el total del carrito
     let total = carrito.reduce((acc, item) => acc + (item.precio * item.cantidad), 0);
 
     // Concatenamos el total al link de PayPal.Me
@@ -368,7 +370,10 @@
 
     // Redirigimos al usuario al pago
     window.location.href = paypalLink;
+  }
 </script>
+
+
 
 </body>
 </html>
