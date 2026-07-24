@@ -304,31 +304,105 @@ h2{
 </div>
 
 <script>
-function siguiente(){
+setInterval(()=>{
 
-    if(indice == imagenes.length - 1){
+    indice++;
 
-        indice = 0;
-
-        contenedor.style.transition = "none";
-        contenedor.style.transform = "translateX(0)";
-
-        setTimeout(()=>{
-
-            contenedor.style.transition = "transform .8s ease";
-
-        },20);
-
-    }else{
-
-        indice++;
-        actualizar();
-
+    if(indice>=imagenes.length){
+        indice=0;
     }
 
-}
-</script>
+    actualizar();
 
+},7000);
+</script>
+    <style>
+.slider{
+
+    width:600px;          /* Ancho del carrusel */
+    height:350px;         /* Alto del carrusel */
+
+    max-width:100%;
+
+    margin:40px auto;
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:20px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.25);
+
+    background:#fff;
+
+}
+
+        .slides{
+
+    display:flex;
+
+    width:100%;
+    height:100%;
+
+    transition:transform .8s ease;
+
+}
+
+        .slides img{
+
+    min-width:100%;
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+
+}
+.prev,
+.next{
+
+    position:absolute;
+
+    top:50%;
+    transform:translateY(-50%);
+
+    width:45px;
+    height:45px;
+
+    border:none;
+    border-radius:50%;
+
+    background:rgba(0,0,0,.45);
+
+    color:white;
+
+    font-size:24px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.prev:hover,
+.next:hover{
+
+    background:#800020;
+
+}
+
+.prev{
+    left:15px;
+}
+
+.next{
+    right:15px;
+}
+
+        </style>
 </body>
 </html>
 
