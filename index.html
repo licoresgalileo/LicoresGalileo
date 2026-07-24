@@ -116,42 +116,90 @@
 <body>
   <!-- Contenido de tu página -->
 
-  <!-- Burbuja flotante de WhatsApp -->
-  <a href="https://wa.me/50238419115" class="whatsapp-float" target="_blank">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
-  </a>
-</body>
-<head>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    .whatsapp-float {
-      position: fixed;
-      width: 75px;
-      height: 75px;
-      bottom: 20px;
-      right: 20px;
-      background-color: #25d366;
-      color: #fff;
-      border-radius: 50%;
-      text-align: center;
-      font-size: 30px;
-      box-shadow: 2px 2px 5px #999;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+ /*=============================
+      BOTÓN WHATSAPP
+=============================*/
+<style>
+.whatsapp-float{
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+
+    width: 70px;
+    height: 70px;
+
+    background: #25D366;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-decoration: none;
+
+    box-shadow: 0 10px 25px rgba(0,0,0,.25);
+
+    z-index: 99999;
+
+    overflow: hidden;
+
+    transition: transform .3s ease,
+                box-shadow .3s ease;
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+.whatsapp-float:hover{
+    transform: scale(1.1);
+    box-shadow: 0 15px 35px rgba(0,0,0,.35);
+}
+
+.whatsapp-float:active{
+    transform: scale(.96);
+}
+
+.whatsapp-float img{
+    width: 42px;
+    height: 42px;
+
+    display: block;
+
+    object-fit: contain;
+
+    flex-shrink: 0;
+
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+@media (max-width:768px){
+
+    .whatsapp-float{
+        width:60px;
+        height:60px;
+        right:18px;
+        bottom:18px;
     }
 
-    .whatsapp-float img {
-      width: 45px;
-      height: 45px;
+    .whatsapp-float img{
+        width:36px;
+        height:36px;
     }
-  </style>
-</head>
 
+}
 
+</style>
 
+<!-- Botón flotante de WhatsApp -->
+<a href="https://wa.me/50238419115"
+   class="whatsapp-float"
+   target="_blank"
+   rel="noopener noreferrer"
+   aria-label="Contactar por WhatsApp">
 
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+
+</a>
 
 
 
