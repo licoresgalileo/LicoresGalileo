@@ -4,16 +4,8 @@
   <meta charset="UTF-8">
   <title>Productos - Licores Galileo</title>
   <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family: Arial, sans-serif;
-    }
-
-    body{
-      background-color:#f4f4f4;
-    }
+    *{margin:0;padding:0;box-sizing:border-box;font-family:Arial, sans-serif;}
+    body{background:#f4f4f4;}
 
     header{
       background:#6b0000;
@@ -24,43 +16,20 @@
       align-items:center;
     }
 
-    .logo{
-      font-size:28px;
-      font-weight:bold;
-    }
+    .logo{font-size:28px;font-weight:bold;}
 
-    nav ul{
-      list-style:none;
-      display:flex;
-    }
-
-    nav ul li{
-      margin-left:20px;
-    }
-
-    nav ul li a{
-      color:white;
-      text-decoration:none;
-      font-size:18px;
-      transition:0.3s;
-    }
-
-    nav ul li a:hover{
-      color:#ffd700;
-    }
+    nav ul{list-style:none;display:flex;}
+    nav ul li{margin-left:20px;}
+    nav ul li a{color:white;text-decoration:none;font-size:18px;transition:0.3s;}
+    nav ul li a:hover{color:#ffd700;}
 
     /* Carrito */
     .carrito {
       position: relative;
       font-size: 28px;
       margin-left: 20px;
+      cursor:pointer;
     }
-
-    .carrito a {
-      color: white;
-      text-decoration: none;
-    }
-
     .carrito #contador {
       position: absolute;
       top: -8px;
@@ -89,44 +58,59 @@
       box-shadow:0 0 10px rgba(0,0,0,0.2);
       text-align:center;
     }
+    .producto img{width:100%;height:250px;object-fit:cover;}
+    .producto h3{margin:10px 0;}
+    .precio{color:#6b0000;font-size:20px;font-weight:bold;}
+    .btn{display:inline-block;margin:15px;padding:10px 20px;background:#6b0000;color:white;text-decoration:none;border-radius:5px;cursor:pointer;}
+    .btn:hover{background:#8b0000;}
 
-    .producto img{
-      width:100%;
-      height:250px;
-      object-fit:cover;
+    /* Overlay carrito */
+    .overlay {
+      position: fixed;
+      top:0;left:0;width:100%;height:100%;
+      background: rgba(0,0,0,0.7);
+      display:none;
+      justify-content:center;
+      align-items:center;
+      z-index:1000;
     }
-
-    .producto h3{
-      margin:10px 0;
+    .overlay-content {
+      background:white;
+      padding:20px;
+      border-radius:10px;
+      width:400px;
+      max-height:80%;
+      overflow-y:auto;
     }
-
-    .precio{
+    .overlay-content h2 {
+      margin-bottom:15px;
       color:#6b0000;
-      font-size:20px;
-      font-weight:bold;
     }
-
-    .btn{
-      display:inline-block;
-      margin:15px;
-      padding:10px 20px;
+    .overlay-content ul {
+      list-style:none;
+      padding:0;
+    }
+    .overlay-content li {
+      margin-bottom:10px;
+      border-bottom:1px solid #ccc;
+      padding-bottom:5px;
+    }
+    .close-btn {
       background:#6b0000;
       color:white;
-      text-decoration:none;
+      border:none;
+      padding:8px 15px;
       border-radius:5px;
       cursor:pointer;
+      margin-top:15px;
     }
-
-    .btn:hover{
-      background:#8b0000;
-    }
+    .close-btn:hover {background:#8b0000;}
   </style>
 </head>
 <body>
 
 <header>
   <div class="logo">Licores Galileo</div>
-
   <nav>
     <ul>
       <li><a href="index.html">Inicio</a></li>
@@ -138,16 +122,13 @@
       <li><a href="pregunta.html">Preguntas frecuentes</a></li>
     </ul>
   </nav>
-
   <!-- Icono carrito -->
-  <div class="carrito">
-    <a href="carrito.html">🛒</a>
-    <span id="contador">0</span>
+  <div class="carrito" onclick="mostrarCarrito()">
+    🛒 <span id="contador">0</span>
   </div>
 </header>
 
 <div class="contenedor">
-
   <div class="producto">
     <img src="bluelabel.jpg" alt="Whisky">
     <h3>Whisky JW etiqueta Azul</h3>
@@ -168,17 +149,44 @@
     <p class="precio">Q480.00</p>
     <button class="btn" onclick="addToCart('Whisky JW etiqueta Roja', 480)">Agregar al carrito</button>
   </div>
+</div>
 
+<!-- Overlay carrito -->
+<div class="overlay" id="overlay">
+  <div class="overlay-content">
+    <h2>Tu Carrito</h2>
+    <ul id="listaCarrito"></ul>
+    <p><strong>Total: Q<span id="total">0</span></strong></p>
+    <button class="close-btn" onclick="cerrarCarrito()">Cerrar</button>
+  </div>
 </div>
 
 <script>
   let carrito = [];
   let contador = document.getElementById('contador');
+  let listaCarrito = document.getElementById('listaCarrito');
+  let totalSpan = document.getElementById('total');
 
   function addToCart(nombre, precio) {
     carrito.push({nombre, precio});
     contador.textContent = carrito.length;
-    console.log("Carrito:", carrito); // Para ver en consola
+  }
+
+  function mostrarCarrito() {
+    listaCarrito.innerHTML = '';
+    let total = 0;
+    carrito.forEach(item => {
+      let li = document.createElement('li');
+      li.textContent = `${item.nombre} - Q${item.precio}`;
+      listaCarrito.appendChild(li);
+      total += item.precio;
+    });
+    totalSpan.textContent = total;
+    document.getElementById('overlay').style.display = 'flex';
+  }
+
+  function cerrarCarrito() {
+    document.getElementById('overlay').style.display = 'none';
   }
 </script>
 
