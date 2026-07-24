@@ -298,111 +298,51 @@ h2{
     <img src="img3.webp">
     <img src="img4.webp">
 
- 
+    <!-- Copia de la primera -->
     <img src="img1.jpeg">
 
 </div>
 
 <script>
-setInterval(()=>{
+            const contenedor = document.querySelector(".carrusel-contenedor");
+const imagenes = document.querySelectorAll(".carrusel-contenedor img");
+
+let indice = 0;
+
+function mover(){
+
+    contenedor.style.transition = "transform .8s ease";
+
+    contenedor.style.transform = `translateX(-${indice*100}%)`;
+
+}
+
+function siguiente(){
 
     indice++;
 
-    if(indice>=imagenes.length){
+    mover();
+
+}
+
+setInterval(siguiente,5000);
+
+contenedor.addEventListener("transitionend",()=>{
+
+    if(indice===imagenes.length-1){
+
+        contenedor.style.transition="none";
+
         indice=0;
+
+        contenedor.style.transform="translateX(0)";
+
     }
 
-    actualizar();
-
-},7000);
+});
+            
 </script>
-    <style>
-.slider{
-
-    width:600px;          /* Ancho del carrusel */
-    height:350px;         /* Alto del carrusel */
-
-    max-width:100%;
-
-    margin:40px auto;
-
-    position:relative;
-
-    overflow:hidden;
-
-    border-radius:20px;
-
-    box-shadow:0 10px 25px rgba(0,0,0,.25);
-
-    background:#fff;
-
-}
-
-        .slides{
-
-    display:flex;
-
-    width:100%;
-    height:100%;
-
-    transition:transform .8s ease;
-
-}
-
-        .slides img{
-
-    min-width:100%;
-    width:100%;
-
-    height:100%;
-
-    object-fit:cover;
-
-    display:block;
-
-}
-.prev,
-.next{
-
-    position:absolute;
-
-    top:50%;
-    transform:translateY(-50%);
-
-    width:45px;
-    height:45px;
-
-    border:none;
-    border-radius:50%;
-
-    background:rgba(0,0,0,.45);
-
-    color:white;
-
-    font-size:24px;
-
-    cursor:pointer;
-
-    transition:.3s;
-
-}
-
-.prev:hover,
-.next:hover{
-
-    background:#800020;
-
-}
-
-.prev{
-    left:15px;
-}
-
-.next{
-    right:15px;
-}
-
-        </style>
+    
 </body>
 </html>
 
