@@ -88,12 +88,21 @@
       width:400px;
       max-height:80%;
       overflow-y:auto;
+      text-align:center;
     }
     .overlay-content h2 {margin-bottom:15px;color:#6b0000;}
-    .overlay-content ul {list-style:none;padding:0;}
+    .overlay-content ul {list-style:none;padding:0;text-align:left;}
     .overlay-content li {margin-bottom:10px;border-bottom:1px solid #ccc;padding-bottom:5px;}
-    .close-btn {background:#6b0000;color:white;border:none;padding:8px 15px;border-radius:5px;cursor:pointer;margin-top:15px;}
-    .close-btn:hover {background:#8b0000;}
+    .btn-overlay {
+      background:#6b0000;
+      color:white;
+      border:none;
+      padding:10px 20px;
+      border-radius:5px;
+      cursor:pointer;
+      margin:10px;
+    }
+    .btn-overlay:hover {background:#8b0000;}
   </style>
 </head>
 <body>
@@ -149,7 +158,9 @@
     <h2>Tu Carrito</h2>
     <ul id="listaCarrito"></ul>
     <p><strong>Total: Q<span id="total">0</span></strong></p>
-    <button class="close-btn" onclick="cerrarCarrito()">Cerrar</button>
+    <button class="btn-overlay" onclick="vaciarCarrito()">Vaciar carrito</button>
+    <button class="btn-overlay" onclick="procederPago()">Proceder al pago</button>
+    <button class="btn-overlay" onclick="cerrarCarrito()">Cerrar</button>
   </div>
 </div>
 
@@ -185,6 +196,17 @@
 
   function cerrarCarrito() {
     document.getElementById('overlay').style.display = 'none';
+  }
+
+  function vaciarCarrito() {
+    carrito = [];
+    actualizarContador();
+    mostrarCarrito();
+  }
+
+  function procederPago() {
+    alert("Aquí iría la integración con PayPal, Stripe o MercadoPago.");
+    // Aquí puedes redirigir a una página de pago real o integrar un SDK
   }
 </script>
 
