@@ -1,294 +1,581 @@
+```html
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Noticias | Licores Galileo</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
+    <title>Noticias | Licores Galileo</title>
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, sans-serif;
-}
+    <style>
 
-body{
-    background:#f4f4f4;
-}
+        /* ==================== CONFIGURACIÓN GENERAL ==================== */
 
-/*================ HEADER ================*/
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
 
-header{
-    background:#6b0000;
-    color:white;
-    padding:15px 30px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
+        body {
+            background: #f4f4f4;
+        }
 
 
-    .logo img{
-    height:40px;
-    width:auto;
-}
+        /* ==================== HEADER ==================== */
 
-nav ul{
-    list-style:none;
-    display:flex;
-}
+        header {
+            background: #6b0000;
+            color: white;
+            padding: 15px 30px;
 
-nav ul li{
-    margin-left:20px;
-}
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-nav ul li a{
-    color:white;
-    text-decoration:none;
-    font-size:18px;
-    transition:.3s;
-}
+        /* LOGO DEL HEADER */
 
-nav ul li a:hover{
-    color:#ffd700;
-}
+        .logo {
+            display: flex;
+            align-items: center;
+            width: 180px;
+            height: 50px;
+        }
 
-/*================ TITULO ================*/
+        .logo img {
+            width: auto;
+            height: 45px;
+            max-width: 180px;
 
-.hero{
-    text-align:center;
-    padding:70px 20px;
-}
+            object-fit: contain;
+            display: block;
+        }
 
-.hero h1{
-    color:#6b0000;
-    font-size:45px;
-}
 
-.hero p{
-    color:#555;
-    font-size:18px;
-    margin-top:10px;
-}
+        /* ==================== MENÚ ==================== */
 
-/*================ SECCIONES ================*/
+        nav ul {
+            list-style: none;
 
-.contenedor{
-    max-width:1100px;
-    margin:auto;
-    padding:20px;
-}
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
 
-.tarjeta{
-    background:white;
-    border-radius:10px;
-    padding:25px;
-    margin-bottom:40px;
-    box-shadow:0 5px 15px rgba(0,0,0,.15);
-}
+        nav ul li {
+            margin-left: 20px;
+        }
 
-.tarjeta h2{
-    color:#6b0000;
-    margin-bottom:15px;
-}
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            transition: 0.3s;
+        }
 
-.tarjeta img{
-    width:100%;
-    max-height:400px;
-    object-fit:cover;
-    border-radius:10px;
-    margin:20px 0;
-}
+        nav ul li a:hover {
+            color: #ffd700;
+        }
 
-.tarjeta p{
-    color:#555;
-    line-height:1.8;
-    text-align:justify;
-}
 
-/*================ FOOTER ================*/
+        /* ==================== TÍTULO ==================== */
 
-.footer-galileo{
-    background:linear-gradient(135deg,#6b0000,#8b0000);
-    color:white;
-    text-align:center;
-    padding:50px 20px;
-    margin-top:60px;
-}
+        .hero {
+            text-align: center;
+            padding: 70px 20px;
+        }
 
-.footer-contenido{
-    max-width:900px;
-    margin:auto;
-}
+        .hero h1 {
+            color: #6b0000;
+            font-size: 45px;
+        }
 
-.footer-galileo h2{
-    margin-bottom:15px;
-}
+        .hero p {
+            color: #555;
+            font-size: 18px;
+            margin-top: 10px;
+        }
 
-.footer-galileo p{
-    margin-bottom:20px;
-}
 
-.redes-sociales{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:20px;
-}
+        /* ==================== CONTENEDOR ==================== */
 
-.redes-sociales a{
-    color:white;
-    text-decoration:none;
-    font-weight:bold;
-}
+        .contenedor {
+            max-width: 1100px;
+            margin: auto;
+            padding: 20px;
+        }
 
-.redes-sociales a:hover{
-    color:#ffd700;
-}
 
-.footer-galileo hr{
-    margin:25px auto;
-    width:80%;
-}
+        /* ==================== TARJETAS ==================== */
 
-.copyright{
-    margin-top:20px;
-}
+        .tarjeta {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 40px;
 
-</style>
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
 
+        .tarjeta h2 {
+            color: #6b0000;
+            margin-bottom: 15px;
+        }
+
+        .tarjeta img {
+            width: 100%;
+            max-height: 400px;
+
+            object-fit: cover;
+            border-radius: 10px;
+
+            margin: 20px 0;
+
+            display: block;
+        }
+
+        .tarjeta p {
+            color: #555;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+
+        /* ==================== FOOTER ==================== */
+
+        .footer-galileo {
+            background: linear-gradient(135deg, #6b0000, #8b0000);
+
+            color: white;
+            text-align: center;
+
+            padding: 50px 20px;
+            margin-top: 60px;
+        }
+
+        .footer-contenido {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .footer-galileo h2 {
+            margin-bottom: 15px;
+        }
+
+        .footer-galileo p {
+            margin-bottom: 20px;
+        }
+
+        .redes-sociales {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .redes-sociales a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .redes-sociales a:hover {
+            color: #ffd700;
+        }
+
+        .footer-galileo hr {
+            margin: 25px auto;
+            width: 80%;
+        }
+
+        .copyright {
+            margin-top: 20px;
+        }
+
+
+        /* ==================== BURBUJA WHATSAPP ==================== */
+
+        .whatsapp-float {
+            position: fixed;
+
+            width: 70px;
+            height: 70px;
+
+            right: 25px;
+            bottom: 25px;
+
+            background: #25D366;
+
+            border-radius: 50%;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            text-decoration: none;
+
+            z-index: 99999;
+
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
+
+            overflow: hidden;
+        }
+
+        /* IMAGEN DE WHATSAPP */
+
+        .whatsapp-float img {
+            width: 42px !important;
+            height: 42px !important;
+
+            max-width: 42px !important;
+            max-height: 42px !important;
+
+            min-width: 42px !important;
+            min-height: 42px !important;
+
+            object-fit: contain !important;
+
+            display: block !important;
+
+            margin: 0 !important;
+            padding: 0 !important;
+
+            border: none !important;
+        }
+
+        /* EFECTO AL PASAR EL MOUSE */
+
+        .whatsapp-float:hover {
+            transform: scale(1.08);
+
+            box-shadow:
+                0 6px 18px rgba(0, 0, 0, 0.4);
+        }
+
+
+        /* ==================== RESPONSIVE ==================== */
+
+        @media (max-width: 768px) {
+
+            header {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px;
+            }
+
+            .logo {
+                width: auto;
+                height: 45px;
+            }
+
+            nav ul {
+                justify-content: center;
+            }
+
+            nav ul li {
+                margin: 5px 10px;
+            }
+
+            nav ul li a {
+                font-size: 16px;
+            }
+
+            .hero {
+                padding: 50px 15px;
+            }
+
+            .hero h1 {
+                font-size: 35px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .tarjeta {
+                padding: 20px;
+            }
+
+            /* WHATSAPP EN CELULAR */
+
+            .whatsapp-float {
+                width: 60px;
+                height: 60px;
+
+                right: 18px;
+                bottom: 18px;
+            }
+
+            .whatsapp-float img {
+                width: 36px !important;
+                height: 36px !important;
+
+                max-width: 36px !important;
+                max-height: 36px !important;
+
+                min-width: 36px !important;
+                min-height: 36px !important;
+            }
+        }
+
+    </style>
 </head>
+
 
 <body>
 
-<header>
 
-<div class="logo">
- <img src="Desde.png" alt="Logo Licores Galileo">
-</div>
+    <!-- ==================== HEADER ==================== -->
 
-<nav>
-<ul>
-<li><a href="index.html">Inicio</a></li>
-<li><a href="noticias.html">Noticias</a></li>
-<li><a href="productos.html">Productos</a></li>
-<li><a href="info.html">Sobre Nosotros</a></li>
-<li><a href="contacto.html">Contacto</a></li>
-<li><a href="ubi.html">Ubicaciones</a></li>
-<li><a href="pregunta.html">Preguntas frecuentes</a></li>
-</ul>
-</nav>
+    <header>
 
-</header>
+        <div class="logo">
+            <img src="Desde.png" alt="Logo Licores Galileo">
+        </div>
 
-<section class="hero">
+        <nav>
+            <ul>
 
-<h1>Noticias y Novedades</h1>
+                <li>
+                    <a href="index.html">Inicio</a>
+                </li>
 
-<p>
-Mantente informado sobre las últimas novedades de Licores Galileo.
-</p>
+                <li>
+                    <a href="noticias.html">Noticias</a>
+                </li>
 
-</section>
+                <li>
+                    <a href="productos.html">Productos</a>
+                </li>
 
-<div class="contenedor">
+                <li>
+                    <a href="info.html">Sobre Nosotros</a>
+                </li>
 
-<!-- ================= ARTÍCULO PRINCIPAL ================= -->
+                <li>
+                    <a href="contacto.html">Contacto</a>
+                </li>
 
-<div class="tarjeta">
+                <li>
+                    <a href="ubi.html">Ubicaciones</a>
+                </li>
 
-<h2>Noticias</h2>
+                <li>
+                    <a href="pregunta.html">Preguntas frecuentes</a>
+                </li>
 
-<!-- AQUÍ COLOCA TU IMAGEN -->
-<img src="imagenes/noticia.jpg" alt="Noticia">
+            </ul>
+        </nav>
 
-<p>
+    </header>
 
-Aquí puedes escribir un artículo completo sobre alguna noticia importante de la empresa.
 
-Puedes hablar sobre eventos, promociones, participación en actividades, crecimiento del negocio o cualquier información que desees compartir con tus clientes.
+    <!-- ==================== TÍTULO ==================== -->
 
-Este apartado está pensado para funcionar como una noticia destacada.
+    <section class="hero">
 
-</p>
+        <h1>Noticias y Novedades</h1>
 
-</div>
+        <p>
+            Mantente informado sobre las últimas novedades de Licores Galileo.
+        </p>
 
-<!-- ================= NUEVOS LICORES ================= -->
+    </section>
 
-<div class="tarjeta">
 
-<h2>Nuevos Licores</h2>
+    <!-- ==================== CONTENIDO ==================== -->
 
-<!-- AQUÍ COLOCA TU IMAGEN -->
-<img src="imagenes/licor.jpg" alt="Nuevo Licor">
+    <main class="contenedor">
 
-<p>
 
-En esta sección podrás presentar los nuevos productos que llegan a Licores Galileo.
+        <!-- ==================== NOTICIAS ==================== -->
 
-Puedes agregar información como la marca, el tipo de licor, su origen, características, promociones especiales o disponibilidad.
+        <div class="tarjeta">
 
-</p>
+            <h2>Noticias</h2>
 
-</div>
+            <img
+                src="imagenes/noticia.jpg"
+                alt="Noticias de Licores Galileo"
+            >
 
-<!-- ================= CAPACITACIONES ================= -->
+            <p>
+                Aquí puedes escribir un artículo completo sobre alguna noticia
+                importante de la empresa.
 
-<div class="tarjeta">
+                Puedes hablar sobre eventos, promociones, participación en
+                actividades, crecimiento del negocio o cualquier información
+                que desees compartir con tus clientes.
 
-<h2>Capacitaciones</h2>
+                Este apartado está pensado para funcionar como una noticia
+                destacada.
+            </p>
 
-<!-- AQUÍ COLOCA TU IMAGEN -->
-<img src="imagenes/capacitacion.jpg" alt="Capacitación">
+        </div>
 
-<p>
 
-Comparte fotografías e información sobre las capacitaciones que recibe el personal de Licores Galileo.
+        <!-- ==================== NUEVOS LICORES ==================== -->
 
-Esto demuestra el compromiso de la empresa con el servicio al cliente, el conocimiento de sus productos y la mejora continua.
+        <div class="tarjeta">
 
-</p>
+            <h2>Nuevos Licores</h2>
 
-</div>
+            <img
+                src="imagenes/licor.jpg"
+                alt="Nuevos licores de Licores Galileo"
+            >
 
-</div>
+            <p>
+                En esta sección podrás presentar los nuevos productos que
+                llegan a Licores Galileo.
 
-<footer class="footer-galileo">
+                Puedes agregar información como la marca, el tipo de licor,
+                su origen, características, promociones especiales o
+                disponibilidad.
+            </p>
 
-<div class="footer-contenido">
+        </div>
 
-<h2>Licores Galileo</h2>
 
-<p>
-Síguenos en nuestras redes sociales y conoce nuestras promociones.
-</p>
+        <!-- ==================== CAPACITACIONES ==================== -->
 
-<div class="redes-sociales">
+        <div class="tarjeta">
 
-<a href="https://www.facebook.com/TU_PAGINA" target="_blank">Facebook</a>
+            <h2>Capacitaciones</h2>
 
-<a href="https://www.instagram.com/TU_USUARIO" target="_blank">Instagram</a>
+            <img
+                src="imagenes/capacitacion.jpg"
+                alt="Capacitación de Licores Galileo"
+            >
 
-<a href="https://www.youtube.com/channel/UCom0V_9iwCmQDSCvG2pvzBA" target="_blank">YouTube</a>
+            <p>
+                Comparte fotografías e información sobre las capacitaciones
+                que recibe el personal de Licores Galileo.
 
-<a href="mailto:licoresgalileo@gmail.com">
-Correo: licoresgalileo@gmail.com
-</a>
+                Esto demuestra el compromiso de la empresa con el servicio
+                al cliente, el conocimiento de sus productos y la mejora
+                continua.
+            </p>
 
-</div>
+        </div>
 
-<hr>
 
-<p class="copyright">
-© 2026 Licores Galileo | Todos los derechos reservados
-</p>
+    </main>
 
-</div>
 
-</footer>
+    <!-- ==================== FOOTER ==================== -->
+
+    <footer class="footer-galileo">
+
+        <div class="footer-contenido">
+
+            <h2>Licores Galileo</h2>
+
+            <p>
+                Síguenos en nuestras redes sociales y conoce nuestras
+                promociones.
+            </p>
+
+            <div class="redes-sociales">
+
+                <a
+                    href="https://www.facebook.com/profile.php?id=61592198829186"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Facebook
+                </a>
+
+                <a
+                    href="https://www.instagram.com/licoresgalileo/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Instagram
+                </a>
+
+                <a
+                    href="https://www.youtube.com/channel/UCom0V_9iwCmQDSCvG2pvzBA"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    YouTube
+                </a>
+
+                <a href="mailto:licoresgalileo@gmail.com">
+                    Correo: licoresgalileo@gmail.com
+                </a>
+
+            </div>
+
+            <hr>
+
+            <p class="copyright">
+                © 2026 Licores Galileo | Todos los derechos reservados
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- ==================== WHATSAPP ==================== -->
+
+    <a
+        href="https://wa.me/50238419115"
+        class="whatsapp-float"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Contactar por WhatsApp"
+    >
+
+        <img
+            src="whatsapp.png"
+            alt="WhatsApp"
+        >
+
+    </a>
+
 
 </body>
 </html>
+```
+
+### Lo importante para que NO se haga gigante
+
+La parte que controla específicamente el problema es esta:
+
+```css
+.whatsapp-float img {
+    width: 42px !important;
+    height: 42px !important;
+    max-width: 42px !important;
+    max-height: 42px !important;
+    min-width: 42px !important;
+    min-height: 42px !important;
+    object-fit: contain !important;
+}
+```
+
+El `!important` es intencional: evita que las reglas generales como `.tarjeta img` o algún otro CSS terminen afectando accidentalmente al logo de WhatsApp.
+
+**Solo asegúrate de tener la imagen llamada `whatsapp.png` en la misma carpeta que tu archivo `noticias.html`.**
+
+Si tu imagen de WhatsApp tiene otro nombre, por ejemplo `whatsapp.jpg`, únicamente cambia:
+
+```html
+<img src="whatsapp.png" alt="WhatsApp">
+```
+
+por el nombre correcto.
+
+También corregí los enlaces de **Facebook e Instagram** que estaban como `TU_PAGINA` y `TU_USUARIO`, usando los que ya habíamos establecido para Licores Galileo.
