@@ -1,618 +1,875 @@
+```html
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Licores Galileo</title>
 
-    
-    <header>
-        <div class="logo"></div>
-             <img src="Desde.png" alt="Logo Licores Galileo">
-        <nav>
-            <ul>
-                 <li><a href="index.html">Inicio</a></li>
-                <li><a href="noticias.html">Noticias</a></li>
-                <li><a href="productos.html">Productos</a></li>
-                <li><a href="info.html">Sobre Nosotros</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-                <li><a href="ubi.html">Ubicaciones</a></li>
-                 <li><a href="pregunta.html">Preguntas frecuentes</a></li>
-            </ul>
-        </nav>
-    </header>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    
+    <title>Contacto | Licores Galileo</title>
+
+    <!-- FONT AWESOME -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+
+
     <style>
-        *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
+
+        /* =====================================================
+           CONFIGURACIÓN GENERAL
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
             font-family: Arial, sans-serif;
         }
 
-        body{
-            background-color:#f4f4f4;
+        body {
+            background: #f4f4f4;
         }
 
-        header{
-            background:#6b0000;
-            color:white;
-            padding:15px 30px;
-            display:flex;
-            justify-content:space-between;
-            align-items:center;
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
+        header {
+            background: #6b0000;
+            color: white;
+
+            padding: 15px 30px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-       .logo-img {
-  height: 40px;   /* Ajusta el alto del logo */
-  width: auto;    /* Mantiene proporción */
-  margin-right: 15px; /* Espacio respecto al menú */
-}
 
-        nav ul{
-            list-style:none;
-            display:flex;
+        /* LOGO */
+
+        .logo {
+            width: 180px;
+            height: 50px;
+
+            display: flex;
+            align-items: center;
         }
 
-        nav ul li{
-            margin-left:20px;
+        .logo img {
+            height: 45px;
+            width: auto;
+
+            max-width: 180px;
+            max-height: 45px;
+
+            object-fit: contain;
+
+            display: block;
         }
 
-        nav ul li a{
-            color:white;
-            text-decoration:none;
-            font-size:18px;
-            transition:0.3s;
+
+        /* =====================================================
+           MENÚ
+        ===================================================== */
+
+        nav ul {
+            list-style: none;
+
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
         }
 
-        nav ul li a:hover{
-            color:#ffd700;
+        nav ul li {
+            margin-left: 20px;
         }
 
-        .hero{
-            text-align:center;
-            padding:100px 20px;
+        nav ul li a {
+            color: white;
+
+            text-decoration: none;
+
+            font-size: 18px;
+
+            transition: 0.3s;
         }
 
-        .hero h1{
-            font-size:48px;
-            color:#6b0000;
+        nav ul li a:hover {
+            color: #ffd700;
         }
 
-        .hero p{
-            margin-top:15px;
-            font-size:20px;
-            color:#555;
+
+        /* =====================================================
+           CONTACTO
+        ===================================================== */
+
+        .contacto {
+            width: 90%;
+            max-width: 1200px;
+
+            margin: 70px auto;
         }
 
-        .btn{
-            display:inline-block;
-            margin-top:25px;
-            padding:12px 25px;
-            background:#6b0000;
-            color:white;
-            text-decoration:none;
-            border-radius:5px;
+
+        /* TÍTULO */
+
+        .titulo-contacto {
+            text-align: center;
+
+            margin-bottom: 60px;
         }
 
-        .btn:hover{
-            background:#8b0000;
+        .titulo-contacto h1 {
+            font-size: 48px;
+
+            color: #800020;
+
+            margin-bottom: 10px;
         }
+
+        .linea-contacto {
+            width: 120px;
+            height: 4px;
+
+            background: #800020;
+
+            margin: 20px auto;
+
+            border-radius: 10px;
+        }
+
+        .titulo-contacto p {
+            max-width: 800px;
+
+            margin: auto;
+
+            color: #555;
+
+            line-height: 1.8;
+
+            font-size: 18px;
+        }
+
+
+        /* =====================================================
+           TARJETAS DE CONTACTO
+        ===================================================== */
+
+        .contacto-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(240px, 1fr));
+
+            gap: 30px;
+        }
+
+        .contacto-card {
+            background: white;
+
+            text-decoration: none;
+
+            color: #333;
+
+            text-align: center;
+
+            padding: 35px 25px;
+
+            border-radius: 20px;
+
+            box-shadow:
+                0 10px 30px rgba(0, 0, 0, 0.10);
+
+            border-top: 5px solid #800020;
+
+            transition: 0.35s;
+        }
+
+        .contacto-card:hover {
+            transform: translateY(-10px);
+
+            background: #800020;
+
+            color: white;
+
+            box-shadow:
+                0 18px 40px rgba(128, 0, 32, 0.30);
+        }
+
+
+        /* ICONOS */
+
+        .contacto-card i {
+            font-size: 58px;
+
+            color: #800020;
+
+            margin-bottom: 20px;
+
+            transition: 0.35s;
+        }
+
+        .contacto-card:hover i {
+            color: white;
+
+            transform: scale(1.15);
+        }
+
+
+        /* TÍTULOS */
+
+        .contacto-card h3 {
+            margin-bottom: 10px;
+
+            font-size: 24px;
+        }
+
+        .contacto-card span {
+            font-size: 16px;
+
+            word-break: break-word;
+        }
+
+
+        /* COLORES DE ICONOS */
+
+        .whatsapp i {
+            color: #25D366;
+        }
+
+        .facebook i {
+            color: #1877F2;
+        }
+
+        .instagram i {
+            color: #E1306C;
+        }
+
+        .youtube i {
+            color: #FF0000;
+        }
+
+        .correo i {
+            color: #800020;
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        .footer-galileo {
+            background:
+                linear-gradient(135deg, #6b0000, #8b0000);
+
+            color: white;
+
+            text-align: center;
+
+            padding: 50px 20px;
+
+            margin-top: 60px;
+        }
+
+        .footer-contenido {
+            max-width: 900px;
+
+            margin: auto;
+        }
+
+        .footer-galileo h2 {
+            font-size: 32px;
+
+            margin-bottom: 15px;
+        }
+
+        .footer-galileo p {
+            font-size: 16px;
+
+            margin-bottom: 20px;
+
+            line-height: 1.6;
+        }
+
+        .redes-sociales {
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            flex-wrap: wrap;
+
+            gap: 20px;
+
+            margin-bottom: 25px;
+        }
+
+        .redes-sociales a {
+            color: white;
+
+            text-decoration: none;
+
+            font-size: 18px;
+
+            font-weight: bold;
+
+            padding: 10px 15px;
+
+            border-radius: 8px;
+
+            transition: 0.3s;
+        }
+
+        .redes-sociales a:hover {
+            background:
+                rgba(255, 255, 255, 0.15);
+
+            color: #ffd700;
+        }
+
+        .footer-galileo hr {
+            border: none;
+
+            height: 1px;
+
+            background:
+                rgba(255, 255, 255, 0.3);
+
+            margin: 25px auto;
+
+            width: 80%;
+        }
+
+        .copyright {
+            font-size: 14px;
+
+            opacity: 0.9;
+        }
+
+
+        /* =====================================================
+           BURBUJA WHATSAPP
+        ===================================================== */
+
+        .whatsapp-float {
+            position: fixed;
+
+            right: 25px;
+            bottom: 25px;
+
+            width: 70px;
+            height: 70px;
+
+            background: #25D366;
+
+            border-radius: 50%;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            text-decoration: none;
+
+            box-shadow:
+                0 10px 25px rgba(0, 0, 0, 0.25);
+
+            z-index: 99999;
+
+            overflow: hidden;
+
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
+
+            -webkit-tap-highlight-color: transparent;
+        }
+
+
+        /* LOGO WHATSAPP */
+
+        .whatsapp-float img {
+            width: 42px !important;
+            height: 42px !important;
+
+            max-width: 42px !important;
+            max-height: 42px !important;
+
+            min-width: 42px !important;
+            min-height: 42px !important;
+
+            object-fit: contain !important;
+
+            display: block !important;
+
+            margin: 0 !important;
+            padding: 0 !important;
+
+            border: none !important;
+
+            flex-shrink: 0;
+
+            user-select: none;
+
+            -webkit-user-drag: none;
+        }
+
+
+        /* EFECTO HOVER */
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+
+            box-shadow:
+                0 15px 35px rgba(0, 0, 0, 0.35);
+        }
+
+
+        /* EFECTO AL PRESIONAR */
+
+        .whatsapp-float:active {
+            transform: scale(0.96);
+        }
+
+
+        /* =====================================================
+           CELULARES
+        ===================================================== */
+
+        @media (max-width: 768px) {
+
+            /* HEADER */
+
+            header {
+                flex-direction: column;
+
+                gap: 15px;
+
+                padding: 15px;
+            }
+
+
+            /* LOGO */
+
+            .logo {
+                width: auto;
+                height: 45px;
+            }
+
+            .logo img {
+                height: 40px;
+
+                max-width: 160px;
+                max-height: 40px;
+            }
+
+
+            /* MENÚ */
+
+            nav ul {
+                justify-content: center;
+            }
+
+            nav ul li {
+                margin: 5px 10px;
+            }
+
+            nav ul li a {
+                font-size: 16px;
+            }
+
+
+            /* CONTACTO */
+
+            .contacto {
+                width: 90%;
+
+                margin: 50px auto;
+            }
+
+            .titulo-contacto h1 {
+                font-size: 36px;
+            }
+
+            .titulo-contacto p {
+                font-size: 16px;
+            }
+
+
+            /* TARJETAS */
+
+            .contacto-grid {
+                grid-template-columns: 1fr;
+
+                gap: 20px;
+            }
+
+
+            /* WHATSAPP */
+
+            .whatsapp-float {
+                width: 60px;
+                height: 60px;
+
+                right: 18px;
+                bottom: 18px;
+            }
+
+            .whatsapp-float img {
+                width: 36px !important;
+                height: 36px !important;
+
+                max-width: 36px !important;
+                max-height: 36px !important;
+
+                min-width: 36px !important;
+                min-height: 36px !important;
+            }
+
+        }
+
     </style>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">  
+
 </head>
+
+
 <body>
 
-<section class="contacto">
 
-    <div class="titulo-contacto">
+    <!-- =====================================================
+         HEADER
+    ===================================================== -->
 
-        <h1>Contáctenos</h1>
+    <header>
 
-        <div class="linea-contacto"></div>
 
-        <p>
-            En <strong>Licores Galileo</strong> valoramos la comunicación con nuestros clientes.
-            Si tienes alguna consulta, sugerencia o deseas más información sobre nuestros
-            productos, puedes comunicarte con nosotros a través de cualquiera de nuestros
-            canales oficiales. Será un gusto atenderte.
-        </p>
+        <!-- LOGO -->
 
-    </div>
+        <div class="logo">
 
-    <div class="contacto-grid">
+            <img
+                src="Desde.png"
+                alt="Logo Licores Galileo"
+            >
 
-        <a href="https://wa.me/50238419115" target="_blank" class="contacto-card whatsapp">
-
-            <i class="fa-brands fa-whatsapp"></i>
-
-            <h3>WhatsApp</h3>
-
-            <span>+502 3841-9115</span>
-
-        </a>
-
-        <a href="mailto:licoresgalileo@gmail.com" class="contacto-card correo">
-
-            <i class="fa-solid fa-envelope"></i>
-
-            <h3>Correo Electrónico</h3>
-
-            <span>licoresgalileo@gmail.com</span>
-
-        </a>
-
-        <a href="https://www.facebook.com/profile.php?id=61592198829186" target="_blank" class="contacto-card facebook">
-
-            <i class="fa-brands fa-facebook-f"></i>
-
-            <h3>Facebook</h3>
-
-            <span>Licores Galileo</span>
-
-        </a>
-
-        <a href="https://www.instagram.com/licoresgalileo/" target="_blank" class="contacto-card instagram">
-
-            <i class="fa-brands fa-instagram"></i>
-
-            <h3>Instagram</h3>
-
-            <span>@licoresgalileo</span>
-
-        </a>
-
-        <a href="https://www.youtube.com/channel/UCom0V_9iwCmQDSCvG2pvzBA" target="_blank" class="contacto-card youtube">
-
-            <i class="fa-brands fa-youtube"></i>
-
-            <h3>YouTube</h3>
-
-            <span>Licores Galileo</span>
-
-        </a>
-
-    </div>
-
-</section>
-
-<style>
-
-.contacto{
-
-    width:90%;
-    max-width:1200px;
-
-    margin:70px auto;
-
-}
-
-.titulo-contacto{
-
-    text-align:center;
-    margin-bottom:60px;
-
-}
-
-.titulo-contacto h1{
-
-    font-size:48px;
-    color:#800020;
-    margin-bottom:10px;
-
-}
-
-.linea-contacto{
-
-    width:120px;
-    height:4px;
-
-    background:#800020;
-
-    margin:20px auto;
-
-    border-radius:10px;
-
-}
-
-.titulo-contacto p{
-
-    max-width:800px;
-    margin:auto;
-
-    color:#555;
-
-    line-height:1.8;
-
-    font-size:18px;
-
-}
-
-.contacto-grid{
-
-    display:grid;
-
-    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-
-    gap:30px;
-
-}
-
-.contacto-card{
-
-    background:white;
-
-    text-decoration:none;
-
-    color:#333;
-
-    text-align:center;
-
-    padding:35px 25px;
-
-    border-radius:20px;
-
-    box-shadow:0 10px 30px rgba(0,0,0,.10);
-
-    border-top:5px solid #800020;
-
-    transition:.35s;
-
-}
-
-.contacto-card:hover{
-
-    transform:translateY(-10px);
-
-    background:#800020;
-
-    color:white;
-
-    box-shadow:0 18px 40px rgba(128,0,32,.30);
-
-}
-
-.contacto-card i{
-
-    font-size:58px;
-
-    color:#800020;
-
-    margin-bottom:20px;
-
-    transition:.35s;
-
-}
-
-.contacto-card:hover i{
-
-    color:white;
-
-    transform:scale(1.15);
-
-}
-
-.contacto-card h3{
-
-    margin-bottom:10px;
-
-    font-size:24px;
-
-}
-
-.contacto-card span{
-
-    font-size:16px;
-
-    word-break:break-word;
-
-}
-
-/* Colores de los iconos */
-
-.whatsapp i{
-
-    color:#25D366;
-
-}
-
-.facebook i{
-
-    color:#1877F2;
-
-}
-
-.instagram i{
-
-    color:#E1306C;
-
-}
-
-.youtube i{
-
-    color:#FF0000;
-
-}
-
-.correo i{
-
-    color:#800020;
-
-}
-
-@media(max-width:768px){
-
-.titulo-contacto h1{
-
-    font-size:36px;
-
-}
-
-.titulo-contacto p{
-
-    font-size:16px;
-
-}
-
-}
-
-</styles
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-<section class="contacto">
-
-    <div class="titulo-contacto">
-
-        <h1>Contáctenos</h1>
-
-        <div class="linea-contacto"></div>
-
-        <p>
-            En <strong>Licores Galileo</strong> valoramos la comunicación con nuestros clientes.
-            Si tienes alguna consulta, sugerencia o deseas más información sobre nuestros
-            productos, puedes comunicarte con nosotros a través de cualquiera de nuestros
-            canales oficiales. Será un gusto atenderte.
-        </p>
-
-    </div>
-
-    <div class="contacto-grid">
-
-        <a href="https://wa.me/50238419115" target="_blank" class="contacto-card whatsapp">
-
-            <i class="fa-brands fa-whatsapp"></i>
-
-            <h3>WhatsApp</h3>
-
-            <span>+502 3841-9115</span>
-
-        </a>
-
-        <a href="mailto:licoresgalileo@gmail.com" class="contacto-card correo">
-
-            <i class="fa-solid fa-envelope"></i>
-
-            <h3>Correo Electrónico</h3>
-
-            <span>licoresgalileo@gmail.com</span>
-
-        </a>
-
-        <a href="https://www.facebook.com/profile.php?id=61592198829186" target="_blank" class="contacto-card facebook">
-
-            <i class="fa-brands fa-facebook-f"></i>
-
-            <h3>Facebook</h3>
-
-            <span>Licores Galileo</span>
-
-        </a>
-
-        <a href="https://www.instagram.com/licoresgalileo/" target="_blank" class="contacto-card instagram">
-
-            <i class="fa-brands fa-instagram"></i>
-
-            <h3>Instagram</h3>
-
-            <span>@licoresgalileo</span>
-
-        </a>
-
-        <a href="https://www.youtube.com/channel/UCom0V_9iwCmQDSCvG2pvzBA" target="_blank" class="contacto-card youtube">
-
-            <i class="fa-brands fa-youtube"></i>
-
-            <h3>YouTube</h3>
-
-            <span>Licores Galileo</span>
-
-        </a>
-
-    </div>
-
-</section>
-
-
-<style>
-.footer-galileo{
-    background: linear-gradient(135deg, #6b0000, #8b0000);
-    color: white;
-    text-align: center;
-    padding: 50px 20px;
-    margin-top: 60px;
-    font-family: Arial, sans-serif;
-}
-
-.footer-contenido{
-    max-width: 900px;
-    margin: auto;
-}
-
-.footer-galileo h2{
-    font-size: 32px;
-    margin-bottom: 15px;
-}
-
-.footer-galileo p{
-    font-size: 16px;
-    margin-bottom: 20px;
-}
-
-.redes-sociales{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
-    margin-bottom: 25px;
-}
-
-.redes-sociales a{
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: bold;
-    padding: 10px 15px;
-    border-radius: 8px;
-    transition: 0.3s;
-}
-
-.redes-sociales a:hover{
-    background: rgba(255,255,255,0.15);
-    color: #ffd700;
-}
-
-.footer-galileo hr{
-    border: none;
-    height: 1px;
-    background: rgba(255,255,255,0.3);
-    margin: 25px auto;
-    width: 80%;
-}
-
-.copyright{
-    font-size: 14px;
-    opacity: 0.9;
-}
-</style>
-    
-
-<style>
-.footer-galileo{
-    background: linear-gradient(135deg, #6b0000, #8b0000);
-    color: white;
-    text-align: center;
-    padding: 50px 20px;
-    margin-top: 60px;
-    font-family: Arial, sans-serif;
-}
-
-.footer-contenido{
-    max-width: 900px;
-    margin: auto;
-}
-
-.footer-galileo h2{
-    font-size: 32px;
-    margin-bottom: 15px;
-}
-
-.footer-galileo p{
-    font-size: 16px;
-    margin-bottom: 20px;
-}
-
-.redes-sociales{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
-    margin-bottom: 25px;
-}
-
-.redes-sociales a{
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: bold;
-    padding: 10px 15px;
-    border-radius: 8px;
-    transition: 0.3s;
-}
-
-.redes-sociales a:hover{
-    background: rgba(255,255,255,0.15);
-    color: #ffd700;
-}
-
-.footer-galileo hr{
-    border: none;
-    height: 1px;
-    background: rgba(255,255,255,0.3);
-    margin: 25px auto;
-    width: 80%;
-}
-
-.copyright{
-    font-size: 14px;
-    opacity: 0.9;
-}
-</style>
-
-  
-<footer class="footer-galileo">
-    <div class="footer-contenido">
-
-        <h2> Licores Galileo</h2>
-
-        <p>
-            Síguenos en nuestras redes sociales y mantente al día con nuestras promociones,
-            nuevos productos y ofertas especiales.
-        </p>
-
-        <div class="redes-sociales">
-            <a href="https://www.facebook.com/profile.php?id=61592198829186" target="_blank"> Facebook</a>
-
-            <a href="https://www.instagram.com/licoresgalileo/" target="_blank"> Instagram</a>
-
-            <a href="https://www.youtube.com/channel/UCom0V_9iwCmQDSCvG2pvzBA" target="_blank">YouTube</a>
-
-            <a href="mailto:correo@licoresgalileo.com">Correo contacto: licoresgalileo@gmail.com </a>
         </div>
 
-        <hr>
 
-        <p class="copyright">
-            © 2026 Licores Galileo | Todos los derechos reservados
-        </p>
+        <!-- MENÚ -->
 
-    </div>
-</footer>
+        <nav>
+
+            <ul>
+
+                <li>
+                    <a href="index.html">
+                        Inicio
+                    </a>
+                </li>
+
+                <li>
+                    <a href="noticias.html">
+                        Noticias
+                    </a>
+                </li>
+
+                <li>
+                    <a href="productos.html">
+                        Productos
+                    </a>
+                </li>
+
+                <li>
+                    <a href="info.html">
+                        Sobre Nosotros
+                    </a>
+                </li>
+
+                <li>
+                    <a href="contacto.html">
+                        Contacto
+                    </a>
+                </li>
+
+                <li>
+                    <a href="ubi.html">
+                        Ubicaciones
+                    </a>
+                </li>
+
+                <li>
+                    <a href="pregunta.html">
+                        Preguntas frecuentes
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
 
 
+    <!-- =====================================================
+         CONTACTO
+    ===================================================== -->
 
+    <section class="contacto">
+
+
+        <!-- TÍTULO -->
+
+        <div class="titulo-contacto">
+
+            <h1>
+                Contáctenos
+            </h1>
+
+            <div class="linea-contacto"></div>
+
+            <p>
+
+                En <strong>Licores Galileo</strong> valoramos
+                la comunicación con nuestros clientes.
+
+                Si tienes alguna consulta, sugerencia o deseas
+                más información sobre nuestros productos,
+                puedes comunicarte con nosotros a través de
+                cualquiera de nuestros canales oficiales.
+
+                Será un gusto atenderte.
+
+            </p>
+
+        </div>
+
+
+        <!-- =================================================
+             TARJETAS
+        ================================================= -->
+
+        <div class="contacto-grid">
+
+
+            <!-- WHATSAPP -->
+
+            <a
+                href="https://wa.me/50238419115"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="contacto-card whatsapp"
+            >
+
+                <i class="fa-brands fa-whatsapp"></i>
+
+                <h3>
+                    WhatsApp
+                </h3>
+
+                <span>
+                    +502 3841-9115
+                </span>
+
+            </a>
+
+
+            <!-- CORREO -->
+
+            <a
+                href="mailto:licoresgalileo@gmail.com"
+                class="contacto-card correo"
+            >
+
+                <i class="fa-solid fa-envelope"></i>
+
+                <h3>
+                    Correo Electrónico
+                </h3>
+
+                <span>
+                    licoresgalileo@gmail.com
+                </span>
+
+            </a>
+
+
+            <!-- FACEBOOK -->
+
+            <a
+                href="https://www.facebook.com/profile.php?id=61592198829186"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="contacto-card facebook"
+            >
+
+                <i class="fa-brands fa-facebook-f"></i>
+
+                <h3>
+                    Facebook
+                </h3>
+
+                <span>
+                    Licores Galileo
+                </span>
+
+            </a>
+
+
+            <!-- INSTAGRAM -->
+
+            <a
+                href="https://www.instagram.com/licoresgalileo/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="contacto-card instagram"
+            >
+
+                <i class="fa-brands fa-instagram"></i>
+
+                <h3>
+                    Instagram
+                </h3>
+
+                <span>
+                    @licoresgalileo
+                </span>
+
+            </a>
+
+
+            <!-- YOUTUBE -->
+
+            <a
+                href="https://www.youtube.com/channel/UCom0V_9iwCmQDSCvG2pvzBA"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="contacto-card youtube"
+            >
+
+                <i class="fa-brands fa-youtube"></i>
+
+                <h3>
+                    YouTube
+                </h3>
+
+                <span>
+                    Licores Galileo
+                </span>
+
+            </a>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         FOOTER
+    ===================================================== -->
+
+    <footer class="footer-galileo">
+
+        <div class="footer-contenido">
+
+            <h2>
+                Licores Galileo
+            </h2>
+
+            <p>
+
+                Síguenos en nuestras redes sociales y mantente
+                al día con nuestras promociones, nuevos productos
+                y ofertas especiales.
+
+            </p>
+
+
+            <div class="redes-sociales">
+
+
+                <a
+                    href="https://www.facebook.com/profile.php?id=61592198829186"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Facebook
+                </a>
+
+
+                <a
+                    href="https://www.instagram.com/licoresgalileo/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Instagram
+                </a>
+
+
+                <a
+                    href="https://www.youtube.com/channel/UCom0V_9iwCmQDSCvG2pvzBA"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    YouTube
+                </a>
+
+
+                <a
+                    href="mailto:licoresgalileo@gmail.com"
+                >
+                    Correo:
+                    licoresgalileo@gmail.com
+                </a>
+
+
+            </div>
+
+
+            <hr>
+
+
+            <p class="copyright">
+
+                © 2026 Licores Galileo |
+                Todos los derechos reservados
+
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =====================================================
+         BURBUJA FLOTANTE DE WHATSAPP
+    ===================================================== -->
+
+    <a
+        href="https://wa.me/50238419115"
+        class="whatsapp-float"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Contactar por WhatsApp"
+    >
+
+        <img
+            src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+            alt="WhatsApp"
+        >
+
+    </a>
 
 
 </body>
+
 </html>
+```
