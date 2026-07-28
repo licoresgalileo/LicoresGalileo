@@ -1,532 +1,1842 @@
+```html
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Productos - Licores Galileo</title>
-  <style>
-    *{margin:0;padding:0;box-sizing:border-box;font-family:Arial, sans-serif;}
-    body{background:#f4f4f4;}
 
-    header{
-      background:#6b0000;
-      color:white;
-      padding:15px 30px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-    }
+    <meta charset="UTF-8">
 
-    .logo{font-size:28px;font-weight:bold;}
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    >
 
-    nav ul{list-style:none;display:flex;}
-    nav ul li{margin-left:20px;}
-    nav ul li a{color:white;text-decoration:none;font-size:18px;transition:0.3s;}
-    nav ul li a:hover{color:#ffd700;}
-
-    /* Carrito */
-    .carrito {
-      position: relative;
-      font-size: 28px;
-      margin-left: 20px;
-      cursor:pointer;
-    }
-    .carrito #contador {
-      position: absolute;
-      top: -8px;
-      right: -10px;
-      background: #ffd700;
-      color: #6b0000;
-      font-size: 14px;
-      font-weight: bold;
-      border-radius: 50%;
-      padding: 2px 6px;
-    }
-
-    .contenedor{
-      display:flex;
-      flex-wrap:wrap;
-      justify-content:center;
-      gap:20px;
-      padding:30px;
-    }
-
-    .producto{
-      width:250px;
-      background:white;
-      border-radius:10px;
-      overflow:hidden;
-      box-shadow:0 0 10px rgba(0,0,0,0.2);
-      text-align:center;
-      padding-bottom:15px;
-    }
-    .producto img{width:100%;height:250px;object-fit:cover;}
-    .producto h3{margin:10px 0;}
-    .precio{color:#6b0000;font-size:20px;font-weight:bold;}
-    .cantidad-input {
-      width:60px;
-      padding:5px;
-      margin-top:10px;
-      text-align:center;
-    }
-    .btn{display:inline-block;margin-top:10px;padding:10px 20px;background:#6b0000;color:white;text-decoration:none;border-radius:5px;cursor:pointer;}
-    .btn:hover{background:#8b0000;}
-
-    /* Overlay carrito */
-    .overlay {
-      position: fixed;
-      top:0;left:0;width:100%;height:100%;
-      background: rgba(0,0,0,0.7);
-      display:none;
-      justify-content:center;
-      align-items:center;
-      z-index:1000;
-    }
-    .overlay-content {
-      background:white;
-      padding:20px;
-      border-radius:10px;
-      width:400px;
-      max-height:80%;
-      overflow-y:auto;
-      text-align:center;
-    }
-    .overlay-content h2 {margin-bottom:15px;color:#6b0000;}
-    .overlay-content ul {list-style:none;padding:0;text-align:left;}
-    .overlay-content li {margin-bottom:10px;border-bottom:1px solid #ccc;padding-bottom:5px;}
-    .btn-overlay {
-      background:#6b0000;
-      color:white;
-      border:none;
-      padding:10px 20px;
-      border-radius:5px;
-      cursor:pointer;
-      margin:10px;
-    }
-    .btn-overlay:hover {background:#8b0000;}
+    <title>Productos | Licores Galileo</title>
 
 
-     .logo-img {
-  height: 40px;   /* Ajusta el alto del logo */
-  width: auto;    /* Mantiene proporción */
-  margin-right: 15px; /* Espacio respecto al menú */
-}
-  </style>
+    <style>
+
+        /* =====================================================
+           CONFIGURACIÓN GENERAL
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f4f4;
+        }
+
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
+        header {
+            background: #6b0000;
+            color: white;
+
+            padding: 15px 30px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+
+        /* LOGO */
+
+        .logo {
+            width: 180px;
+            height: 50px;
+
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 45px !important;
+            width: auto !important;
+
+            max-width: 180px !important;
+            max-height: 45px !important;
+
+            object-fit: contain !important;
+
+            display: block;
+
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+
+        /* =====================================================
+           MENÚ
+        ===================================================== */
+
+        nav ul {
+            list-style: none;
+
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+
+            text-decoration: none;
+
+            font-size: 18px;
+
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ffd700;
+        }
+
+
+        /* =====================================================
+           PRODUCTOS
+        ===================================================== */
+
+        .contenedor {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            justify-content: center;
+
+            gap: 20px;
+
+            padding: 30px;
+        }
+
+
+        /* TÍTULOS DE CATEGORÍAS */
+
+        .categoria {
+            width: 100%;
+
+            text-align: center;
+
+            color: #6b0000;
+
+            margin-top: 25px;
+            margin-bottom: 5px;
+
+            font-size: 28px;
+        }
+
+
+        /* TARJETA DEL PRODUCTO */
+
+        .producto {
+            width: 250px;
+
+            background: white;
+
+            border-radius: 10px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 0 10px rgba(0, 0, 0, 0.2);
+
+            text-align: center;
+
+            padding-bottom: 15px;
+        }
+
+
+        .producto img {
+            width: 100%;
+            height: 250px;
+
+            object-fit: cover;
+
+            display: block;
+        }
+
+
+        .producto h3 {
+            margin: 10px 5px;
+
+            font-size: 18px;
+        }
+
+
+        .precio {
+            color: #6b0000;
+
+            font-size: 20px;
+
+            font-weight: bold;
+        }
+
+
+        /* CANTIDAD */
+
+        .cantidad-input {
+            width: 60px;
+
+            padding: 5px;
+
+            margin-top: 10px;
+
+            text-align: center;
+        }
+
+
+        /* BOTÓN AGREGAR */
+
+        .btn {
+            display: inline-block;
+
+            margin-top: 10px;
+
+            padding: 10px 20px;
+
+            background: #6b0000;
+
+            color: white;
+
+            border: none;
+
+            text-decoration: none;
+
+            border-radius: 5px;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #8b0000;
+        }
+
+
+        /* =====================================================
+           BURBUJA DEL CARRITO
+        ===================================================== */
+
+        .carrito-float {
+            position: fixed;
+
+            right: 25px;
+            bottom: 110px;
+
+            width: 70px;
+            height: 70px;
+
+            background: #6b0000;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 10px 25px rgba(0, 0, 0, 0.25);
+
+            z-index: 100000;
+
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+
+        /* ICONO */
+
+        .carrito-icono {
+            font-size: 35px;
+
+            line-height: 1;
+        }
+
+
+        /* CONTADOR */
+
+        .carrito-float #contador {
+            position: absolute;
+
+            top: -5px;
+            right: -5px;
+
+            min-width: 25px;
+            height: 25px;
+
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            background: #ffd700;
+
+            color: #6b0000;
+
+            font-size: 14px;
+
+            font-weight: bold;
+
+            border-radius: 50%;
+
+            padding: 2px 6px;
+
+            border: 2px solid white;
+        }
+
+
+        /* EFECTO */
+
+        .carrito-float:hover {
+            transform: scale(1.1);
+
+            box-shadow:
+                0 15px 35px rgba(0, 0, 0, 0.35);
+        }
+
+        .carrito-float:active {
+            transform: scale(0.96);
+        }
+
+
+        /* =====================================================
+           BURBUJA WHATSAPP
+        ===================================================== */
+
+        .whatsapp-float {
+            position: fixed;
+
+            right: 25px;
+            bottom: 25px;
+
+            width: 70px;
+            height: 70px;
+
+            background: #25D366;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            text-decoration: none;
+
+            box-shadow:
+                0 10px 25px rgba(0, 0, 0, 0.25);
+
+            z-index: 99999;
+
+            overflow: hidden;
+
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
+
+            -webkit-tap-highlight-color: transparent;
+        }
+
+
+        /* LOGO WHATSAPP */
+
+        .whatsapp-float img {
+            width: 42px !important;
+            height: 42px !important;
+
+            max-width: 42px !important;
+            max-height: 42px !important;
+
+            min-width: 42px !important;
+            min-height: 42px !important;
+
+            object-fit: contain !important;
+
+            display: block !important;
+
+            margin: 0 !important;
+            padding: 0 !important;
+
+            border: none !important;
+
+            flex-shrink: 0;
+
+            user-select: none;
+
+            -webkit-user-drag: none;
+        }
+
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+
+            box-shadow:
+                0 15px 35px rgba(0, 0, 0, 0.35);
+        }
+
+
+        .whatsapp-float:active {
+            transform: scale(0.96);
+        }
+
+
+        /* =====================================================
+           VENTANA DEL CARRITO
+        ===================================================== */
+
+        .overlay {
+            position: fixed;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+
+            background:
+                rgba(0, 0, 0, 0.7);
+
+            display: none;
+
+            justify-content: center;
+            align-items: center;
+
+            z-index: 200000;
+
+            padding: 20px;
+        }
+
+
+        .overlay-content {
+            background: white;
+
+            padding: 25px;
+
+            border-radius: 15px;
+
+            width: 400px;
+
+            max-width: 100%;
+
+            max-height: 80vh;
+
+            overflow-y: auto;
+
+            text-align: center;
+
+            box-shadow:
+                0 15px 40px rgba(0, 0, 0, 0.35);
+        }
+
+
+        .overlay-content h2 {
+            margin-bottom: 15px;
+
+            color: #6b0000;
+
+            font-size: 28px;
+        }
+
+
+        .overlay-content ul {
+            list-style: none;
+
+            padding: 0;
+
+            text-align: left;
+
+            margin-bottom: 15px;
+        }
+
+
+        .overlay-content li {
+            margin-bottom: 10px;
+
+            border-bottom: 1px solid #ccc;
+
+            padding-bottom: 8px;
+
+            line-height: 1.5;
+        }
+
+
+        .total-carrito {
+            font-size: 20px;
+
+            margin: 15px 0;
+        }
+
+
+        /* BOTONES DEL CARRITO */
+
+        .btn-overlay {
+            background: #6b0000;
+
+            color: white;
+
+            border: none;
+
+            padding: 10px 20px;
+
+            border-radius: 5px;
+
+            cursor: pointer;
+
+            margin: 5px;
+
+            transition: 0.3s;
+        }
+
+
+        .btn-overlay:hover {
+            background: #8b0000;
+        }
+
+
+        /* PAYPAL */
+
+        .paypal-info {
+            margin: 15px 0;
+
+            text-align: center;
+
+            padding: 10px;
+        }
+
+
+        .paypal-info img {
+            height: 40px !important;
+            width: auto !important;
+
+            max-width: 150px !important;
+
+            display: block !important;
+
+            margin: 0 auto !important;
+
+            object-fit: contain !important;
+        }
+
+
+        .paypal-info p {
+            margin-top: 5px;
+
+            font-weight: bold;
+
+            color: #003087;
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        .footer-galileo {
+            background:
+                linear-gradient(135deg, #6b0000, #8b0000);
+
+            color: white;
+
+            text-align: center;
+
+            padding: 50px 20px;
+
+            margin-top: 60px;
+        }
+
+
+        .footer-contenido {
+            max-width: 900px;
+
+            margin: auto;
+        }
+
+
+        .footer-galileo h2 {
+            font-size: 32px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .footer-galileo p {
+            font-size: 16px;
+
+            margin-bottom: 20px;
+
+            line-height: 1.6;
+        }
+
+
+        .redes-sociales {
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            flex-wrap: wrap;
+
+            gap: 20px;
+
+            margin-bottom: 25px;
+        }
+
+
+        .redes-sociales a {
+            color: white;
+
+            text-decoration: none;
+
+            font-size: 18px;
+
+            font-weight: bold;
+
+            padding: 10px 15px;
+
+            border-radius: 8px;
+
+            transition: 0.3s;
+        }
+
+
+        .redes-sociales a:hover {
+            background:
+                rgba(255, 255, 255, 0.15);
+
+            color: #ffd700;
+        }
+
+
+        .footer-galileo hr {
+            border: none;
+
+            height: 1px;
+
+            background:
+                rgba(255, 255, 255, 0.3);
+
+            margin: 25px auto;
+
+            width: 80%;
+        }
+
+
+        .copyright {
+            font-size: 14px;
+
+            opacity: 0.9;
+        }
+
+
+        /* =====================================================
+           CELULAR
+        ===================================================== */
+
+        @media (max-width: 768px) {
+
+
+            /* HEADER */
+
+            header {
+                flex-direction: column;
+
+                gap: 15px;
+
+                padding: 15px;
+            }
+
+
+            /* LOGO */
+
+            .logo {
+                width: auto;
+                height: 45px;
+            }
+
+
+            .logo img {
+                height: 40px !important;
+
+                max-width: 160px !important;
+                max-height: 40px !important;
+            }
+
+
+            /* MENÚ */
+
+            nav ul {
+                justify-content: center;
+            }
+
+
+            nav ul li {
+                margin: 5px 10px;
+            }
+
+
+            nav ul li a {
+                font-size: 16px;
+            }
+
+
+            /* PRODUCTOS */
+
+            .contenedor {
+                padding: 20px 10px;
+            }
+
+
+            .producto {
+                width: 280px;
+                max-width: 90%;
+            }
+
+
+            /* CARRITO */
+
+            .carrito-float {
+                width: 60px;
+                height: 60px;
+
+                right: 18px;
+                bottom: 90px;
+            }
+
+
+            .carrito-icono {
+                font-size: 30px;
+            }
+
+
+            .carrito-float #contador {
+                top: -4px;
+                right: -4px;
+
+                min-width: 23px;
+                height: 23px;
+
+                font-size: 13px;
+            }
+
+
+            /* WHATSAPP */
+
+            .whatsapp-float {
+                width: 60px;
+                height: 60px;
+
+                right: 18px;
+                bottom: 18px;
+            }
+
+
+            .whatsapp-float img {
+                width: 36px !important;
+                height: 36px !important;
+
+                max-width: 36px !important;
+                max-height: 36px !important;
+
+                min-width: 36px !important;
+                min-height: 36px !important;
+            }
+
+
+            /* CARRITO ABIERTO */
+
+            .overlay-content {
+                width: 100%;
+
+                max-height: 85vh;
+
+                padding: 20px;
+            }
+
+        }
+
+    </style>
+
 </head>
+
+
 <body>
- 
 
-<header>
-  <div class="logo"><img src= "Desde.png" alt="Logo Licores Galileo" style="height:40px; width:auto; margin-right:15px;"> </div>
-  <nav>
-    <ul>
-      <li><a href="index.html">Inicio</a></li>
-      <li><a href="noticias.html">Noticias</a></li>
-      <li><a href="productos.html">Productos</a></li>
-      <li><a href="info.html">Sobre Nosotros</a></li>
-      <li><a href="contacto.html">Contacto</a></li>
-      <li><a href="ubi.html">Ubicaciones</a></li>
-      <li><a href="pregunta.html">Preguntas frecuentes</a></li>
-    </ul>
-  </nav>
-  <!-- Icono carrito -->
-  <div class="carrito" onclick="mostrarCarrito()">
-    🛒 <span id="contador">0</span>
-  </div>
-</header>
 
-  
-<style>
-.whatsapp-float{
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
+    <!-- =====================================================
+         HEADER
+    ===================================================== -->
 
-    width: 70px;
-    height: 70px;
+    <header>
 
-    background: #25D366;
-    border-radius: 50%;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+        <!-- LOGO -->
 
-    text-decoration: none;
+        <div class="logo">
 
-    box-shadow: 0 10px 25px rgba(0,0,0,.25);
+            <img
+                src="Desde.png"
+                alt="Logo Licores Galileo"
+            >
 
-    z-index: 99999;
-
-    overflow: hidden;
-
-    transition: transform .3s ease,
-                box-shadow .3s ease;
-
-    -webkit-tap-highlight-color: transparent;
-}
-
-.whatsapp-float:hover{
-    transform: scale(1.1);
-    box-shadow: 0 15px 35px rgba(0,0,0,.35);
-}
-
-.whatsapp-float:active{
-    transform: scale(.96);
-}
-
-.whatsapp-float img{
-    width: 42px;
-    height: 42px;
-
-    display: block;
-
-    object-fit: contain;
-
-    flex-shrink: 0;
-
-    user-select: none;
-    -webkit-user-drag: none;
-}
-
-@media (max-width:768px){
-
-    .whatsapp-float{
-        width:60px;
-        height:60px;
-        right:18px;
-        bottom:18px;
-    }
-
-    .whatsapp-float img{
-        width:36px;
-        height:36px;
-    }
-
-}
-
-</style>
-
-
-<a href="https://wa.me/50238419115"
-   class="whatsapp-float"
-   target="_blank"
-   rel="noopener noreferrer"
-   aria-label="Contactar por WhatsApp">
-
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-
-</a>
-
-<div class="contenedor">
-
-  <!-- Apartado Whiskies -->
-  <h2 style="width:100%; text-align:center; color:#6b0000;">Whiskies</h2>
-  <div class="producto">
-    <img src="bluelabel.jpg" alt="Whisky Azul">
-    <h3>Whisky JW etiqueta Azul</h3>
-    <p class="precio">Q1250.00</p>
-    <input type="number" id="cant1" class="cantidad-input" value="1" min="1">
-    <button class="btn" onclick="addToCart('Whisky JW etiqueta Azul', 1250, document.getElementById('cant1').value)">Agregar al carrito</button>
-  </div>
-
-  <div class="producto">
-    <img src="jackdaniels.jpg" alt="Jack Daniels">
-    <h3>Whisky Jack Daniels</h3>
-    <p class="precio">Q750.00</p>
-    <input type="number" id="cant2" class="cantidad-input" value="1" min="1">
-    <button class="btn" onclick="addToCart('Whisky Jack Daniels', 750, document.getElementById('cant2').value)">Agregar al carrito</button>
-  </div>
-
-  <div class="producto">
-    <img src="redlabel.webp" alt="Whisky Rojo">
-    <h3>Whisky JW etiqueta Roja</h3>
-    <p class="precio">Q480.00</p>
-    <input type="number" id="cant3" class="cantidad-input" value="1" min="1">
-    <button class="btn" onclick="addToCart('Whisky JW etiqueta Roja', 480, document.getElementById('cant3').value)">Agregar al carrito</button>
-  </div>
-
-  <!-- Nuevos Whiskies -->
-  <div class="producto">
-    <img src="JWNEGRA.jpg" alt="JW etiqueta Negra">
-    <h3>Whisky JW etiqueta Negra</h3>
-    <p class="precio">Q400.00</p>
-    <input type="number" id="cant7" class="cantidad-input" value="1" min="1">
-    <button class="btn" onclick="addToCart('Whisky JW etiqueta Negra', 400, document.getElementById('cant7').value)">Agregar al carrito</button>
-  </div>
-
-  <div class="producto">
-    <img src="chivasr.jpeg" alt="Chivas Regal">
-    <h3>Chivas Regal</h3>
-    <p class="precio">Q670.00</p>
-    <input type="number" id="cant8" class="cantidad-input" value="1" min="1">
-    <button class="btn" onclick="addToCart('Chivas Regal', 670, document.getElementById('cant8').value)">Agregar al carrito</button>
-  </div>
-
-  <!-- Apartado Vodka -->
-  <h2 style="width:100%; text-align:center; color:#6b0000;">Vodkas</h2>
-  <div class="producto">
-    <img src="finlandia.jpg" alt="Vodka Finlandia">
-    <h3>Vodka Finlandia</h3>
-    <p class="precio">Q300.00</p>
-    <input type="number" id="cant4" class="cantidad-input" value="1" min="1">
-    <button class="btn" onclick="addToCart('Vodka Finlandia', 300, document.getElementById('cant4').value)">Agregar al carrito</button>
-  </div>
-
-  <!-- Nuevos Vodkas -->
-  <div class="producto">
-    <img src="absolut.webp" alt="Absolut Vodka">
-    <h3>Absolut Vodka</h3>
-    <p class="precio">Q330.00</p>
-    <input type="number" id="cant9" class="cantidad-input" value="1" min="1">
-    <button class="btn" onclick="addToCart('Absolut Vodka', 330, document.getElementById('cant9').value)">Agregar al carrito</button>
-  </div>
-
-  <div class="producto">
-    <img src="greygoose.webp" alt="Grey Goose">
-    <h3>Grey Goose</h3>
-    <p class="precio">Q300.00</p>
-    <input type="number" id="cant10" class="cantidad-input" value="1" min="1">
-    <button class="btn" onclick="addToCart('Grey Goose', 300, document.getElementById('cant10').value)">Agregar al carrito</button>
-  </div>
-
-  <!-- Apartado Licores -->
-  <h2 style="width:100%; text-align:center; color:#6b0000;">Licores</h2>
-  <div class="producto">
-    <img src="pacharan.jpg" alt="Pacharán Botella">
-    <h3>Pacharán Botella</h3>
-    <p class="precio">Q225.00</p>
-    <input type="number" id="cant5" class="cantidad-input" value="1" min="1">
-    <button class="btn" onclick="addToCart('Pacharán Botella', 225, document.getElementById('cant5').value)">Agregar al carrito</button>
-  </div>
-
-  <div class="producto">
-    <img src="frangelico.webp" alt="Frangelico Botella">
-    <h3>Frangelico Botella</h3>
-    <p class="precio">Q340.00</p>
-    <input type="number" id="cant6" class="cantidad-input" value="1" min="1">
-    <button class="btn" onclick="addToCart('Frangelico Botella', 340, document.getElementById('cant6').value)">Agregar al carrito</button>
-  </div>
-
-  <!-- Nuevos Licores -->
-  <div class="producto">
-    <img src="sambuca.webp" alt="Molinari Sambuca">
-    <h3>Molinari Sambuca</h3>
-    <p class="precio">Q330.00</p>
-    <input type="number" id="cant11" class="cantidad-input" value="1" min="1">
-    <button class="btn" onclick="addToCart('Molinari Sambuca', 330, document.getElementById('cant11').value)">Agregar al carrito</button>
-  </div>
-
-  <div class="producto">
-    <img src="licor43.jpg" alt="Licor 43">
-    <h3>Licor 43</h3>
-    <p class="precio">Q260.00</p>
-    <input type="number" id="cant12" class="cantidad-input" value="1" min="1">
-    <button class="btn" onclick="addToCart('Licor 43', 260, document.getElementById('cant12').value)">Agregar al carrito</button>
-  </div>
-
-  <div class="producto">
-    <img src="anisdelmono.jpg" alt="Anís del Mono">
-    <h3>Anís del Mono</h3>
-    <p class="precio">Q130.00</p>
-    <input type="number" id="cant13" class="cantidad-input" value="1" min="1">
-    <button class="btn" onclick="addToCart('Anís del Mono', 130, document.getElementById('cant13').value)">Agregar al carrito</button>
-  </div>
-
-  <!-- Apartado Tequilas -->
-  <h2 style="width:100%; text-align:center; color:#6b0000;">Tequilas</h2>
-  <div class="producto">
-    <img src="1800cristalino.jpg" alt="1800 Cristalino">
-    <h3>1800 Cristalino</h3>
-    <p class="precio">Q600.00</p>
-    <input type="number" id="cant14" class="cantidad-input" value="1" min="1">
-    <button class="btn" onclick="addToCart('1800 Cristalino', 600, document.getElementById('cant14').value)">Agregar al carrito</button>
-  </div>
-
-  <div class="producto">
-    <img src="djblanco.webp" alt="Don Julio Blanco">
-    <h3>Don Julio Blanco</h3>
-    <p class="precio">Q400.00</p>
-    <input type="number" id="cant15" class="cantidad-input" value="1" min="1">
-    <button class="btn" onclick="addToCart('Don Julio Blanco', 400, document.getElementById('cant15').value)">Agregar al carrito</button>
-  </div>
-
-  <div class="producto">
-    <img src="djreposado.jpg" alt="Don Julio Reposado">
-      <h3>Don Reposado</h3>
-    <p class="precio">Q500.00</p>
-    <input type="number" id="cant16" class="cantidad-input" value="1" min="1">
-    <button class="btn" onclick="addToCart('Don Julio Reposado', 400, document.getElementById('cant16').value)">Agregar al carrito</button>
-  </div>
-
-<!-- Overlay carrito -->
-<div class="overlay" id="overlay">
-  <div class="overlay-content">
-    <h2>Tu Carrito</h2>
-    <ul id="listaCarrito"></ul>
-    <p><strong>Total: Q<span id="total">0</span></strong></p>
-    <button class="btn-overlay" onclick="vaciarCarrito()">Vaciar carrito</button>
-
-    
- <!-- Referencia de pago con PayPal -->
-    <div style="margin:15px 0; text-align:center;">
-      <img src="paypal.jpg" alt="Pago con PayPal" style="height:40px; width:auto; display:block; margin:0 auto;">
-      <p style="margin-top:5px; font-weight:bold; color:#003087;">Pago con PayPal</p>
-    </div>
-
-    
-    <button class="btn-overlay" onclick="procederPago()">Proceder al pago</button>
-    <button class="btn-overlay" onclick="cerrarCarrito()">Cerrar</button>
-  </div>
-</div>
-
-
-<script>
-  let carrito = [];
-  let contador = document.getElementById('contador');
-  let listaCarrito = document.getElementById('listaCarrito');
-  let totalSpan = document.getElementById('total');
-
-  function addToCart(nombre, precio, cantidad) {
-    cantidad = parseInt(cantidad);
-    carrito.push({nombre, precio, cantidad});
-    actualizarContador();
-  }
-
-  function actualizarContador() {
-    let totalItems = carrito.reduce((acc, item) => acc + item.cantidad, 0);
-    contador.textContent = totalItems;
-  }
-
-  function mostrarCarrito() {
-    listaCarrito.innerHTML = '';
-    let total = 0;
-    carrito.forEach(item => {
-      let li = document.createElement('li');
-      li.textContent = `${item.nombre} x${item.cantidad} - Q${item.precio * item.cantidad}`;
-      listaCarrito.appendChild(li);
-      total += item.precio * item.cantidad;
-    });
-    totalSpan.textContent = total;
-    document.getElementById('overlay').style.display = 'flex';
-  }
-
-  function cerrarCarrito() {
-    document.getElementById('overlay').style.display = 'none';
-  }
-
-  function vaciarCarrito() {
-    carrito = [];
-    actualizarContador();
-    mostrarCarrito();
-  }
-
-  function procederPago() {
-    // Calculamos el total del carrito
-    let total = carrito.reduce((acc, item) => acc + (item.precio * item.cantidad), 0);
-
-    // Concatenamos el total al link de PayPal.Me
-    let paypalLink = "https://www.paypal.com/paypalme/ervin2001GT/" + total;
-
-    // Redirigimos al usuario al pago
-    window.location.href = paypalLink;
-  }
-</script>
-    </body>
-
-<style>
-.footer-galileo{
-    background: linear-gradient(135deg, #6b0000, #8b0000);
-    color: white;
-    text-align: center;
-    padding: 50px 20px;
-    margin-top: 60px;
-    font-family: Arial, sans-serif;
-}
-
-.footer-contenido{
-    max-width: 900px;
-    margin: auto;
-}
-
-.footer-galileo h2{
-    font-size: 32px;
-    margin-bottom: 15px;
-}
-
-.footer-galileo p{
-    font-size: 16px;
-    margin-bottom: 20px;
-}
-
-.redes-sociales{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
-    margin-bottom: 25px;
-}
-
-.redes-sociales a{
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: bold;
-    padding: 10px 15px;
-    border-radius: 8px;
-    transition: 0.3s;
-}
-
-.redes-sociales a:hover{
-    background: rgba(255,255,255,0.15);
-    color: #ffd700;
-}
-
-.footer-galileo hr{
-    border: none;
-    height: 1px;
-    background: rgba(255,255,255,0.3);
-    margin: 25px auto;
-    width: 80%;
-}
-
-.copyright{
-    font-size: 14px;
-    opacity: 0.9;
-}
-</style>
-
-  
-<footer class="footer-galileo">
-    <div class="footer-contenido">
-
-        <h2> Licores Galileo</h2>
-
-        <p>
-            Síguenos en nuestras redes sociales y mantente al día con nuestras promociones,
-            nuevos productos y ofertas especiales.
-        </p>
-
-        <div class="redes-sociales">
-            <a href="https://www.facebook.com/profile.php?id=61592198829186" target="_blank"> Facebook</a>
-
-            <a href="https://www.instagram.com/licoresgalileo/" target="_blank"> Instagram</a>
-
-            <a href="https://www.youtube.com/channel/UCom0V_9iwCmQDSCvG2pvzBA" target="_blank">YouTube</a>
-
-            <a href="mailto:correo@licoresgalileo.com">Correo contacto: licoresgalileo@gmail.com </a>
         </div>
 
-        <hr>
 
-        <p class="copyright">
-            © 2026 Licores Galileo | Todos los derechos reservados
-        </p>
+        <!-- MENÚ -->
+
+        <nav>
+
+            <ul>
+
+                <li>
+                    <a href="index.html">
+                        Inicio
+                    </a>
+                </li>
+
+                <li>
+                    <a href="noticias.html">
+                        Noticias
+                    </a>
+                </li>
+
+                <li>
+                    <a href="productos.html">
+                        Productos
+                    </a>
+                </li>
+
+                <li>
+                    <a href="info.html">
+                        Sobre Nosotros
+                    </a>
+                </li>
+
+                <li>
+                    <a href="contacto.html">
+                        Contacto
+                    </a>
+                </li>
+
+                <li>
+                    <a href="ubi.html">
+                        Ubicaciones
+                    </a>
+                </li>
+
+                <li>
+                    <a href="pregunta.html">
+                        Preguntas frecuentes
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =====================================================
+         PRODUCTOS
+    ===================================================== -->
+
+    <div class="contenedor">
+
+
+        <!-- ================= WHISKIES ================= -->
+
+        <h2 class="categoria">
+            Whiskies
+        </h2>
+
+
+        <div class="producto">
+
+            <img
+                src="bluelabel.jpg"
+                alt="Whisky Azul"
+            >
+
+            <h3>
+                Whisky JW etiqueta Azul
+            </h3>
+
+            <p class="precio">
+                Q1250.00
+            </p>
+
+            <input
+                type="number"
+                id="cant1"
+                class="cantidad-input"
+                value="1"
+                min="1"
+            >
+
+            <button
+                class="btn"
+                onclick="addToCart(
+                    'Whisky JW etiqueta Azul',
+                    1250,
+                    document.getElementById('cant1').value
+                )"
+            >
+                Agregar al carrito
+            </button>
+
+        </div>
+
+
+        <div class="producto">
+
+            <img
+                src="jackdaniels.jpg"
+                alt="Jack Daniels"
+            >
+
+            <h3>
+                Whisky Jack Daniels
+            </h3>
+
+            <p class="precio">
+                Q750.00
+            </p>
+
+            <input
+                type="number"
+                id="cant2"
+                class="cantidad-input"
+                value="1"
+                min="1"
+            >
+
+            <button
+                class="btn"
+                onclick="addToCart(
+                    'Whisky Jack Daniels',
+                    750,
+                    document.getElementById('cant2').value
+                )"
+            >
+                Agregar al carrito
+            </button>
+
+        </div>
+
+
+        <div class="producto">
+
+            <img
+                src="redlabel.webp"
+                alt="Whisky Rojo"
+            >
+
+            <h3>
+                Whisky JW etiqueta Roja
+            </h3>
+
+            <p class="precio">
+                Q480.00
+            </p>
+
+            <input
+                type="number"
+                id="cant3"
+                class="cantidad-input"
+                value="1"
+                min="1"
+            >
+
+            <button
+                class="btn"
+                onclick="addToCart(
+                    'Whisky JW etiqueta Roja',
+                    480,
+                    document.getElementById('cant3').value
+                )"
+            >
+                Agregar al carrito
+            </button>
+
+        </div>
+
+
+        <div class="producto">
+
+            <img
+                src="JWNEGRA.jpg"
+                alt="JW etiqueta Negra"
+            >
+
+            <h3>
+                Whisky JW etiqueta Negra
+            </h3>
+
+            <p class="precio">
+                Q400.00
+            </p>
+
+            <input
+                type="number"
+                id="cant7"
+                class="cantidad-input"
+                value="1"
+                min="1"
+            >
+
+            <button
+                class="btn"
+                onclick="addToCart(
+                    'Whisky JW etiqueta Negra',
+                    400,
+                    document.getElementById('cant7').value
+                )"
+            >
+                Agregar al carrito
+            </button>
+
+        </div>
+
+
+        <div class="producto">
+
+            <img
+                src="chivasr.jpeg"
+                alt="Chivas Regal"
+            >
+
+            <h3>
+                Chivas Regal
+            </h3>
+
+            <p class="precio">
+                Q670.00
+            </p>
+
+            <input
+                type="number"
+                id="cant8"
+                class="cantidad-input"
+                value="1"
+                min="1"
+            >
+
+            <button
+                class="btn"
+                onclick="addToCart(
+                    'Chivas Regal',
+                    670,
+                    document.getElementById('cant8').value
+                )"
+            >
+                Agregar al carrito
+            </button>
+
+        </div>
+
+
+        <!-- ================= VODKAS ================= -->
+
+        <h2 class="categoria">
+            Vodkas
+        </h2>
+
+
+        <div class="producto">
+
+            <img
+                src="finlandia.jpg"
+                alt="Vodka Finlandia"
+            >
+
+            <h3>
+                Vodka Finlandia
+            </h3>
+
+            <p class="precio">
+                Q300.00
+            </p>
+
+            <input
+                type="number"
+                id="cant4"
+                class="cantidad-input"
+                value="1"
+                min="1"
+            >
+
+            <button
+                class="btn"
+                onclick="addToCart(
+                    'Vodka Finlandia',
+                    300,
+                    document.getElementById('cant4').value
+                )"
+            >
+                Agregar al carrito
+            </button>
+
+        </div>
+
+
+        <div class="producto">
+
+            <img
+                src="absolut.webp"
+                alt="Absolut Vodka"
+            >
+
+            <h3>
+                Absolut Vodka
+            </h3>
+
+            <p class="precio">
+                Q330.00
+            </p>
+
+            <input
+                type="number"
+                id="cant9"
+                class="cantidad-input"
+                value="1"
+                min="1"
+            >
+
+            <button
+                class="btn"
+                onclick="addToCart(
+                    'Absolut Vodka',
+                    330,
+                    document.getElementById('cant9').value
+                )"
+            >
+                Agregar al carrito
+            </button>
+
+        </div>
+
+
+        <div class="producto">
+
+            <img
+                src="greygoose.webp"
+                alt="Grey Goose"
+            >
+
+            <h3>
+                Grey Goose
+            </h3>
+
+            <p class="precio">
+                Q300.00
+            </p>
+
+            <input
+                type="number"
+                id="cant10"
+                class="cantidad-input"
+                value="1"
+                min="1"
+            >
+
+            <button
+                class="btn"
+                onclick="addToCart(
+                    'Grey Goose',
+                    300,
+                    document.getElementById('cant10').value
+                )"
+            >
+                Agregar al carrito
+            </button>
+
+        </div>
+
+
+        <!-- ================= LICORES ================= -->
+
+        <h2 class="categoria">
+            Licores
+        </h2>
+
+
+        <div class="producto">
+
+            <img
+                src="pacharan.jpg"
+                alt="Pacharán Botella"
+            >
+
+            <h3>
+                Pacharán Botella
+            </h3>
+
+            <p class="precio">
+                Q225.00
+            </p>
+
+            <input
+                type="number"
+                id="cant5"
+                class="cantidad-input"
+                value="1"
+                min="1"
+            >
+
+            <button
+                class="btn"
+                onclick="addToCart(
+                    'Pacharán Botella',
+                    225,
+                    document.getElementById('cant5').value
+                )"
+            >
+                Agregar al carrito
+            </button>
+
+        </div>
+
+
+        <div class="producto">
+
+            <img
+                src="frangelico.webp"
+                alt="Frangelico Botella"
+            >
+
+            <h3>
+                Frangelico Botella
+            </h3>
+
+            <p class="precio">
+                Q340.00
+            </p>
+
+            <input
+                type="number"
+                id="cant6"
+                class="cantidad-input"
+                value="1"
+                min="1"
+            >
+
+            <button
+                class="btn"
+                onclick="addToCart(
+                    'Frangelico Botella',
+                    340,
+                    document.getElementById('cant6').value
+                )"
+            >
+                Agregar al carrito
+            </button>
+
+        </div>
+
+
+        <div class="producto">
+
+            <img
+                src="sambuca.webp"
+                alt="Molinari Sambuca"
+            >
+
+            <h3>
+                Molinari Sambuca
+            </h3>
+
+            <p class="precio">
+                Q330.00
+            </p>
+
+            <input
+                type="number"
+                id="cant11"
+                class="cantidad-input"
+                value="1"
+                min="1"
+            >
+
+            <button
+                class="btn"
+                onclick="addToCart(
+                    'Molinari Sambuca',
+                    330,
+                    document.getElementById('cant11').value
+                )"
+            >
+                Agregar al carrito
+            </button>
+
+        </div>
+
+
+        <div class="producto">
+
+            <img
+                src="licor43.jpg"
+                alt="Licor 43"
+            >
+
+            <h3>
+                Licor 43
+            </h3>
+
+            <p class="precio">
+                Q260.00
+            </p>
+
+            <input
+                type="number"
+                id="cant12"
+                class="cantidad-input"
+                value="1"
+                min="1"
+            >
+
+            <button
+                class="btn"
+                onclick="addToCart(
+                    'Licor 43',
+                    260,
+                    document.getElementById('cant12').value
+                )"
+            >
+                Agregar al carrito
+            </button>
+
+        </div>
+
+
+        <div class="producto">
+
+            <img
+                src="anisdelmono.jpg"
+                alt="Anís del Mono"
+            >
+
+            <h3>
+                Anís del Mono
+            </h3>
+
+            <p class="precio">
+                Q130.00
+            </p>
+
+            <input
+                type="number"
+                id="cant13"
+                class="cantidad-input"
+                value="1"
+                min="1"
+            >
+
+            <button
+                class="btn"
+                onclick="addToCart(
+                    'Anís del Mono',
+                    130,
+                    document.getElementById('cant13').value
+                )"
+            >
+                Agregar al carrito
+            </button>
+
+        </div>
+
+
+        <!-- ================= TEQUILAS ================= -->
+
+        <h2 class="categoria">
+            Tequilas
+        </h2>
+
+
+        <div class="producto">
+
+            <img
+                src="1800cristalino.jpg"
+                alt="1800 Cristalino"
+            >
+
+            <h3>
+                1800 Cristalino
+            </h3>
+
+            <p class="precio">
+                Q600.00
+            </p>
+
+            <input
+                type="number"
+                id="cant14"
+                class="cantidad-input"
+                value="1"
+                min="1"
+            >
+
+            <button
+                class="btn"
+                onclick="addToCart(
+                    '1800 Cristalino',
+                    600,
+                    document.getElementById('cant14').value
+                )"
+            >
+                Agregar al carrito
+            </button>
+
+        </div>
+
+
+        <div class="producto">
+
+            <img
+                src="djblanco.webp"
+                alt="Don Julio Blanco"
+            >
+
+            <h3>
+                Don Julio Blanco
+            </h3>
+
+            <p class="precio">
+                Q400.00
+            </p>
+
+            <input
+                type="number"
+                id="cant15"
+                class="cantidad-input"
+                value="1"
+                min="1"
+            >
+
+            <button
+                class="btn"
+                onclick="addToCart(
+                    'Don Julio Blanco',
+                    400,
+                    document.getElementById('cant15').value
+                )"
+            >
+                Agregar al carrito
+            </button>
+
+        </div>
+
+
+        <div class="producto">
+
+            <img
+                src="djreposado.jpg"
+                alt="Don Julio Reposado"
+            >
+
+            <h3>
+                Don Julio Reposado
+            </h3>
+
+            <p class="precio">
+                Q500.00
+            </p>
+
+            <input
+                type="number"
+                id="cant16"
+                class="cantidad-input"
+                value="1"
+                min="1"
+            >
+
+            <button
+                class="btn"
+                onclick="addToCart(
+                    'Don Julio Reposado',
+                    500,
+                    document.getElementById('cant16').value
+                )"
+            >
+                Agregar al carrito
+            </button>
+
+        </div>
 
     </div>
-</footer>
 
 
+    <!-- =====================================================
+         BURBUJA CARRITO
+    ===================================================== -->
+
+    <div
+        class="carrito-float"
+        onclick="mostrarCarrito()"
+        title="Ver carrito"
+        aria-label="Ver carrito"
+    >
+
+        <span class="carrito-icono">
+            🛒
+        </span>
+
+        <span id="contador">
+            0
+        </span>
+
+    </div>
+
+
+    <!-- =====================================================
+         BURBUJA WHATSAPP
+    ===================================================== -->
+
+    <a
+        href="https://wa.me/50238419115"
+        class="whatsapp-float"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Contactar por WhatsApp"
+    >
+
+        <img
+            src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+            alt="WhatsApp"
+        >
+
+    </a>
+
+
+    <!-- =====================================================
+         VENTANA DEL CARRITO
+    ===================================================== -->
+
+    <div
+        class="overlay"
+        id="overlay"
+    >
+
+        <div class="overlay-content">
+
+            <h2>
+                Tu Carrito
+            </h2>
+
+
+            <ul id="listaCarrito"></ul>
+
+
+            <p class="total-carrito">
+
+                <strong>
+                    Total: Q<span id="total">0</span>
+                </strong>
+
+            </p>
+
+
+            <button
+                class="btn-overlay"
+                onclick="vaciarCarrito()"
+            >
+                Vaciar carrito
+            </button>
+
+
+            <!-- PAYPAL -->
+
+            <div class="paypal-info">
+
+                <img
+                    src="paypal.jpg"
+                    alt="Pago con PayPal"
+                >
+
+                <p>
+                    Pago con PayPal
+                </p>
+
+            </div>
+
+
+            <button
+                class="btn-overlay"
+                onclick="procederPago()"
+            >
+                Proceder al pago
+            </button>
+
+
+            <button
+                class="btn-overlay"
+                onclick="cerrarCarrito()"
+            >
+                Cerrar
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         FOOTER
+    ===================================================== -->
+
+    <footer class="footer-galileo">
+
+        <div class="footer-contenido">
+
+            <h2>
+                Licores Galileo
+            </h2>
+
+            <p>
+
+                Síguenos en nuestras redes sociales y mantente
+                al día con nuestras promociones, nuevos productos
+                y ofertas especiales.
+
+            </p>
+
+
+            <div class="redes-sociales">
+
+
+                <a
+                    href="https://www.facebook.com/profile.php?id=61592198829186"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Facebook
+                </a>
+
+
+                <a
+                    href="https://www.instagram.com/licoresgalileo/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Instagram
+                </a>
+
+
+                <a
+                    href="https://www.youtube.com/channel/UCom0V_9iwCmQDSCvG2pvzBA"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    YouTube
+                </a>
+
+
+                <a
+                    href="mailto:licoresgalileo@gmail.com"
+                >
+                    Correo: licoresgalileo@gmail.com
+                </a>
+
+
+            </div>
+
+
+            <hr>
+
+
+            <p class="copyright">
+
+                © 2026 Licores Galileo |
+                Todos los derechos reservados
+
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =====================================================
+         JAVASCRIPT DEL CARRITO
+    ===================================================== -->
+
+    <script>
+
+        let carrito = [];
+
+        let contador =
+            document.getElementById("contador");
+
+        let listaCarrito =
+            document.getElementById("listaCarrito");
+
+        let totalSpan =
+            document.getElementById("total");
+
+
+        /* =====================================================
+           AGREGAR PRODUCTO
+        ===================================================== */
+
+        function addToCart(nombre, precio, cantidad) {
+
+            cantidad = parseInt(cantidad);
+
+            if (isNaN(cantidad) || cantidad < 1) {
+                cantidad = 1;
+            }
+
+            carrito.push({
+                nombre: nombre,
+                precio: precio,
+                cantidad: cantidad
+            });
+
+            actualizarContador();
+
+        }
+
+
+        /* =====================================================
+           ACTUALIZAR CONTADOR
+        ===================================================== */
+
+        function actualizarContador() {
+
+            let totalItems =
+                carrito.reduce(
+                    (acc, item) => acc + item.cantidad,
+                    0
+                );
+
+            contador.textContent = totalItems;
+
+        }
+
+
+        /* =====================================================
+           MOSTRAR CARRITO
+        ===================================================== */
+
+        function mostrarCarrito() {
+
+            listaCarrito.innerHTML = "";
+
+            let total = 0;
+
+
+            carrito.forEach(function(item) {
+
+                let li =
+                    document.createElement("li");
+
+
+                li.textContent =
+                    `${item.nombre} x${item.cantidad} - Q${item.precio * item.cantidad}`;
+
+
+                listaCarrito.appendChild(li);
+
+
+                total +=
+                    item.precio * item.cantidad;
+
+            });
+
+
+            totalSpan.textContent = total;
+
+
+            document.getElementById("overlay")
+                .style.display = "flex";
+
+        }
+
+
+        /* =====================================================
+           CERRAR CARRITO
+        ===================================================== */
+
+        function cerrarCarrito() {
+
+            document.getElementById("overlay")
+                .style.display = "none";
+
+        }
+
+
+        /* =====================================================
+           VACIAR CARRITO
+        ===================================================== */
+
+        function vaciarCarrito() {
+
+            carrito = [];
+
+            actualizarContador();
+
+            mostrarCarrito();
+
+        }
+
+
+        /* =====================================================
+           PROCEDER AL PAGO
+        ===================================================== */
+
+        function procederPago() {
+
+            if (carrito.length === 0) {
+
+                alert(
+                    "Tu carrito está vacío."
+                );
+
+                return;
+
+            }
+
+
+            let total =
+                carrito.reduce(
+                    (acc, item) =>
+                        acc +
+                        (item.precio * item.cantidad),
+                    0
+                );
+
+
+            let paypalLink =
+                "https://www.paypal.com/paypalme/ervin2001GT/"
+                + total;
+
+
+            window.location.href =
+                paypalLink;
+
+        }
+
+    </script>
+
+
+</body>
 
 </html>
-
+```
