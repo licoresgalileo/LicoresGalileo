@@ -543,34 +543,3 @@ target="_blank">
 
 </body>
 </html>
-```
-
-### Lo importante para que NO se haga gigante
-
-La parte que controla específicamente el problema es esta:
-
-```css
-.whatsapp-float img {
-    width: 42px !important;
-    height: 42px !important;
-    max-width: 42px !important;
-    max-height: 42px !important;
-    min-width: 42px !important;
-    min-height: 42px !important;
-    object-fit: contain !important;
-}
-```
-
-El `!important` es intencional: evita que las reglas generales como `.tarjeta img` o algún otro CSS terminen afectando accidentalmente al logo de WhatsApp.
-
-**Solo asegúrate de tener la imagen llamada `whatsapp.png` en la misma carpeta que tu archivo `noticias.html`.**
-
-Si tu imagen de WhatsApp tiene otro nombre, por ejemplo `whatsapp.jpg`, únicamente cambia:
-
-```html
-<img src="whatsapp.png" alt="WhatsApp">
-```
-
-por el nombre correcto.
-
-También corregí los enlaces de **Facebook e Instagram** que estaban como `TU_PAGINA` y `TU_USUARIO`, usando los que ya habíamos establecido para Licores Galileo.
