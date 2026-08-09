@@ -1,10 +1,16 @@
-
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Licores Galileo</title>
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Preguntas frecuentes | Licores Galileo</title>
+
 
     <style>
 
@@ -17,8 +23,13 @@
             font-family:Arial, sans-serif;
         }
 
+        html{
+            scroll-behavior:smooth;
+        }
+
         body{
             background:#f4f4f4;
+            color:#333;
         }
 
 
@@ -27,6 +38,7 @@
         header{
             background:#6b0000;
             color:white;
+
             padding:12px 25px;
 
             display:flex;
@@ -36,7 +48,8 @@
             width:100%;
         }
 
-        /* LOGO */
+
+        /* ================= LOGO ================= */
 
         .logo{
             display:flex;
@@ -47,7 +60,9 @@
         .logo img{
             height:40px;
             width:auto;
+
             display:block;
+
             object-fit:contain;
         }
 
@@ -60,10 +75,13 @@
 
         nav ul{
             list-style:none;
+
             display:flex;
             align-items:center;
             justify-content:flex-end;
+
             gap:18px;
+
             white-space:nowrap;
         }
 
@@ -73,8 +91,11 @@
 
         nav ul li a{
             color:white;
+
             text-decoration:none;
+
             font-size:16px;
+
             transition:0.3s;
         }
 
@@ -83,37 +104,225 @@
         }
 
 
-        /* ================= HERO ================= */
+        /* ================= PREGUNTAS ================= */
 
-        .hero{
+        .preguntas{
+            max-width:900px;
+
+            margin:70px auto;
+
+            padding:20px;
+        }
+
+
+        /* ================= TITULO ================= */
+
+        .preguntas-titulo{
             text-align:center;
-            padding:100px 20px;
+
+            margin-bottom:40px;
         }
 
-        .hero h1{
-            font-size:48px;
+        .preguntas-titulo h1{
             color:#6b0000;
+
+            font-size:42px;
+
+            margin-bottom:12px;
         }
 
-        .hero p{
-            margin-top:15px;
-            font-size:20px;
+        .preguntas-titulo p{
             color:#555;
+
+            font-size:18px;
+
+            line-height:1.6;
+
+            max-width:700px;
+
+            margin:auto;
         }
 
-        .btn{
-            display:inline-block;
-            margin-top:25px;
-            padding:12px 25px;
-            background:#6b0000;
-            color:white;
-            text-decoration:none;
-            border-radius:5px;
+
+        /* ================= CAJA DE PREGUNTA ================= */
+
+        .pregunta{
+            background:white;
+
+            margin-bottom:15px;
+
+            border-radius:10px;
+
+            overflow:hidden;
+
+            border-left:5px solid #6b0000;
+
+            box-shadow:
+                0 4px 12px rgba(0,0,0,0.10);
+
             transition:0.3s;
         }
 
-        .btn:hover{
-            background:#8b0000;
+        .pregunta:hover{
+            box-shadow:
+                0 6px 18px rgba(0,0,0,0.15);
+        }
+
+
+        /* ================= BOTON ================= */
+
+        .pregunta button{
+            width:100%;
+
+            padding:20px;
+
+            background:white;
+
+            border:none;
+
+            outline:none;
+
+            display:flex;
+
+            justify-content:space-between;
+
+            align-items:center;
+
+            text-align:left;
+
+            cursor:pointer;
+
+            font-size:17px;
+
+            font-weight:bold;
+
+            color:#333;
+
+            transition:0.3s;
+        }
+
+        .pregunta button:hover{
+            background:#f8eeee;
+
+            color:#6b0000;
+        }
+
+
+        /* ================= SIGNO ================= */
+
+        .pregunta button span{
+            font-size:27px;
+
+            color:#6b0000;
+
+            min-width:30px;
+
+            text-align:center;
+
+            transition:transform 0.3s ease;
+        }
+
+
+        /* ================= RESPUESTA ================= */
+
+        .respuesta{
+            max-height:0;
+
+            overflow:hidden;
+
+            padding:0 20px;
+
+            color:#555;
+
+            line-height:1.7;
+
+            font-size:16px;
+
+            transition:
+                max-height 0.4s ease,
+                padding 0.4s ease;
+        }
+
+
+        /* ================= PREGUNTA ABIERTA ================= */
+
+        .pregunta.activa .respuesta{
+            max-height:300px;
+
+            padding:0 20px 20px 20px;
+        }
+
+        .pregunta.activa button{
+            color:#6b0000;
+        }
+
+        .pregunta.activa button span{
+            transform:rotate(45deg);
+        }
+
+
+        /* ================= CONTACTO ================= */
+
+        .preguntas-contacto{
+            text-align:center;
+
+            margin-top:45px;
+
+            padding:35px 25px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #6b0000,
+                    #8b0000
+                );
+
+            color:white;
+
+            border-radius:12px;
+
+            box-shadow:
+                0 5px 15px rgba(0,0,0,0.15);
+        }
+
+        .preguntas-contacto h2{
+            font-size:28px;
+
+            margin-bottom:12px;
+        }
+
+        .preguntas-contacto p{
+            font-size:16px;
+
+            line-height:1.6;
+
+            margin-bottom:22px;
+        }
+
+        .preguntas-contacto a{
+            display:inline-block;
+
+            background:white;
+
+            color:#6b0000;
+
+            text-decoration:none;
+
+            font-weight:bold;
+
+            padding:12px 22px;
+
+            border-radius:6px;
+
+            transition:0.3s;
+        }
+
+        .preguntas-contacto a:hover{
+            background:#ffd700;
+
+            color:#6b0000;
+
+            transform:translateY(-2px);
         }
 
 
@@ -129,27 +338,33 @@
             height:65px;
 
             background:#25D366;
+
             border-radius:50%;
 
             display:flex;
+
             align-items:center;
             justify-content:center;
 
             text-decoration:none;
 
-            box-shadow:0 8px 20px rgba(0,0,0,0.25);
+            box-shadow:
+                0 8px 20px rgba(0,0,0,0.25);
 
             z-index:99999;
 
             overflow:hidden;
 
-            transition:transform 0.3s ease,
-                       box-shadow 0.3s ease;
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
         }
 
         .whatsapp-float:hover{
             transform:scale(1.1);
-            box-shadow:0 12px 30px rgba(0,0,0,0.35);
+
+            box-shadow:
+                0 12px 30px rgba(0,0,0,0.35);
         }
 
         .whatsapp-float:active{
@@ -170,6 +385,7 @@
             flex-shrink:0;
 
             user-select:none;
+
             -webkit-user-drag:none;
         }
 
@@ -177,9 +393,15 @@
         /* ================= FOOTER ================= */
 
         .footer-galileo{
-            background:linear-gradient(135deg,#6b0000,#8b0000);
+            background:
+                linear-gradient(
+                    135deg,
+                    #6b0000,
+                    #8b0000
+                );
 
             color:white;
+
             text-align:center;
 
             padding:50px 20px;
@@ -189,25 +411,35 @@
 
         .footer-contenido{
             max-width:900px;
+
             margin:auto;
         }
 
         .footer-galileo h2{
             font-size:32px;
+
             margin-bottom:15px;
         }
 
         .footer-galileo p{
             font-size:16px;
+
+            line-height:1.6;
+
             margin-bottom:20px;
         }
 
+
+        /* ================= REDES ================= */
+
         .redes-sociales{
             display:flex;
+
             justify-content:center;
             align-items:center;
 
             flex-wrap:wrap;
+
             gap:20px;
 
             margin-bottom:25px;
@@ -215,9 +447,11 @@
 
         .redes-sociales a{
             color:white;
+
             text-decoration:none;
 
             font-size:18px;
+
             font-weight:bold;
 
             padding:10px 15px;
@@ -229,8 +463,12 @@
 
         .redes-sociales a:hover{
             background:rgba(255,255,255,0.15);
+
             color:#ffd700;
         }
+
+
+        /* ================= LINEA FOOTER ================= */
 
         .footer-galileo hr{
             border:none;
@@ -245,14 +483,15 @@
         }
 
         .copyright{
-            font-size:14px;
+            font-size:14px !important;
+
             opacity:0.9;
         }
 
 
-        /* ================= PANTALLAS PEQUEÑAS ================= */
+        /* ================= PANTALLAS MEDIANAS ================= */
 
-        @media (max-width:1100px){
+        @media(max-width:1100px){
 
             header{
                 padding:12px 15px;
@@ -269,9 +508,70 @@
         }
 
 
-        /* ================= WHATSAPP EN CELULAR ================= */
+        /* ================= CELULAR ================= */
 
-        @media (max-width:768px){
+        @media(max-width:768px){
+
+            header{
+                padding:12px 10px;
+            }
+
+            nav ul{
+                gap:7px;
+
+                flex-wrap:wrap;
+
+                justify-content:flex-end;
+            }
+
+            nav ul li a{
+                font-size:12px;
+            }
+
+
+            /* PREGUNTAS */
+
+            .preguntas{
+                margin:40px auto;
+
+                padding:15px;
+            }
+
+            .preguntas-titulo h1{
+                font-size:32px;
+            }
+
+            .preguntas-titulo p{
+                font-size:16px;
+            }
+
+            .pregunta button{
+                font-size:15px;
+
+                padding:17px;
+            }
+
+            .pregunta button span{
+                font-size:24px;
+            }
+
+            .respuesta{
+                font-size:15px;
+            }
+
+
+            /* CONTACTO */
+
+            .preguntas-contacto{
+                padding:28px 18px;
+            }
+
+            .preguntas-contacto h2{
+                font-size:24px;
+            }
+
+
+            /* WHATSAPP */
 
             .whatsapp-float{
                 width:58px;
@@ -289,11 +589,31 @@
                 max-height:35px;
             }
 
+
+            /* FOOTER */
+
+            .footer-galileo{
+                padding:40px 15px;
+            }
+
+            .footer-galileo h2{
+                font-size:28px;
+            }
+
+            .redes-sociales{
+                gap:10px;
+            }
+
+            .redes-sociales a{
+                font-size:15px;
+            }
+
         }
 
     </style>
 
 </head>
+
 
 <body>
 
@@ -302,10 +622,15 @@
 
     <header>
 
+
         <!-- LOGO -->
 
         <div class="logo">
-            <img src="Desde.png" alt="Logo Licores Galileo">
+
+            <img
+                src="Desde.png"
+                alt="Logo Licores Galileo">
+
         </div>
 
 
@@ -316,31 +641,45 @@
             <ul>
 
                 <li>
-                    <a href="index.html">Inicio</a>
+                    <a href="index.html">
+                        Inicio
+                    </a>
                 </li>
 
                 <li>
-                    <a href="noticias.html">Noticias</a>
+                    <a href="noticias.html">
+                        Noticias
+                    </a>
                 </li>
 
                 <li>
-                    <a href="productos.html">Productos</a>
+                    <a href="productos.html">
+                        Productos
+                    </a>
                 </li>
 
                 <li>
-                    <a href="info.html">Sobre Nosotros</a>
+                    <a href="info.html">
+                        Sobre Nosotros
+                    </a>
                 </li>
 
                 <li>
-                    <a href="contacto.html">Contacto</a>
+                    <a href="contacto.html">
+                        Contacto
+                    </a>
                 </li>
 
                 <li>
-                    <a href="ubi.html">Ubicaciones</a>
+                    <a href="ubi.html">
+                        Ubicaciones
+                    </a>
                 </li>
 
                 <li>
-                    <a href="pregunta.html">Preguntas frecuentes</a>
+                    <a href="pregunta.html">
+                        Preguntas frecuentes
+                    </a>
                 </li>
 
             </ul>
@@ -350,23 +689,304 @@
     </header>
 
 
-    <!-- ================= HERO ================= -->
 
-    <section class="hero">
+    <!-- ================= PREGUNTAS FRECUENTES ================= -->
 
-        <h1>
-            Bienvenido a Licores Galileo
-        </h1>
+    <section class="preguntas">
 
-        <p>
-            Encuentra las mejores bebidas al mejor precio.
-        </p>
 
-        <a href="productos.html" class="btn">
-            Ver Catálogo
-        </a>
+        <!-- TITULO -->
+
+        <div class="preguntas-titulo">
+
+            <h1>
+                Preguntas frecuentes
+            </h1>
+
+            <p>
+                Encuentra respuestas a las preguntas más comunes
+                sobre Licores Galileo, nuestros productos y servicios.
+            </p>
+
+        </div>
+
+
+
+        <!-- ================= PREGUNTA 1 ================= -->
+
+        <div class="pregunta">
+
+            <button onclick="mostrarRespuesta(this)">
+
+                ¿Qué es Licores Galileo?
+
+                <span>+</span>
+
+            </button>
+
+            <div class="respuesta">
+
+                Licores Galileo es una tienda electrónica dedicada
+                a ofrecer diferentes tipos de bebidas y licores.
+                Nuestro objetivo es brindar una experiencia de
+                compra sencilla, accesible y segura para nuestros
+                clientes.
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= PREGUNTA 2 ================= -->
+
+        <div class="pregunta">
+
+            <button onclick="mostrarRespuesta(this)">
+
+                ¿Qué productos puedo encontrar?
+
+                <span>+</span>
+
+            </button>
+
+            <div class="respuesta">
+
+                En Licores Galileo contamos con diferentes categorías
+                de productos, entre ellas whiskies, vodkas, licores
+                y tequilas. Puedes consultar nuestra sección de
+                productos para conocer las opciones disponibles.
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= PREGUNTA 3 ================= -->
+
+        <div class="pregunta">
+
+            <button onclick="mostrarRespuesta(this)">
+
+                ¿Cómo puedo realizar una compra?
+
+                <span>+</span>
+
+            </button>
+
+            <div class="respuesta">
+
+                Puedes consultar nuestros productos desde la sección
+                "Productos". Selecciona el producto que deseas adquirir,
+                revisa su información y continúa con el proceso de compra
+                disponible en nuestra tienda electrónica.
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= PREGUNTA 4 ================= -->
+
+        <div class="pregunta">
+
+            <button onclick="mostrarRespuesta(this)">
+
+                ¿Qué métodos de pago aceptan?
+
+                <span>+</span>
+
+            </button>
+
+            <div class="respuesta">
+
+                Los métodos de pago disponibles se muestran durante
+                el proceso de compra. Licores Galileo busca ofrecer
+                opciones prácticas y seguras para facilitar las
+                transacciones de nuestros clientes.
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= PREGUNTA 5 ================= -->
+
+        <div class="pregunta">
+
+            <button onclick="mostrarRespuesta(this)">
+
+                ¿Puedo consultar un producto antes de comprarlo?
+
+                <span>+</span>
+
+            </button>
+
+            <div class="respuesta">
+
+                Sí. Puedes revisar la información disponible de cada
+                producto y, si necesitas información adicional, puedes
+                comunicarte directamente con nosotros mediante WhatsApp
+                o nuestros diferentes medios de contacto.
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= PREGUNTA 6 ================= -->
+
+        <div class="pregunta">
+
+            <button onclick="mostrarRespuesta(this)">
+
+                ¿Cómo puedo comunicarme con Licores Galileo?
+
+                <span>+</span>
+
+            </button>
+
+            <div class="respuesta">
+
+                Puedes comunicarte con nosotros mediante WhatsApp,
+                correo electrónico o nuestras redes sociales.
+                También puedes visitar la sección "Contacto" para
+                encontrar nuestros diferentes medios de comunicación.
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= PREGUNTA 7 ================= -->
+
+        <div class="pregunta">
+
+            <button onclick="mostrarRespuesta(this)">
+
+                ¿Dónde puedo encontrar las ubicaciones?
+
+                <span>+</span>
+
+            </button>
+
+            <div class="respuesta">
+
+                Puedes consultar nuestra sección "Ubicaciones",
+                donde encontrarás información relacionada con
+                los lugares asociados a Licores Galileo.
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= PREGUNTA 8 ================= -->
+
+        <div class="pregunta">
+
+            <button onclick="mostrarRespuesta(this)">
+
+                ¿Tienen promociones y ofertas especiales?
+
+                <span>+</span>
+
+            </button>
+
+            <div class="respuesta">
+
+                Sí. Las promociones, novedades y ofertas especiales
+                pueden publicarse en nuestra página web y redes
+                sociales. Te recomendamos seguir nuestras redes
+                para mantenerte informado.
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= PREGUNTA 9 ================= -->
+
+        <div class="pregunta">
+
+            <button onclick="mostrarRespuesta(this)">
+
+                ¿Puedo contactar a Licores Galileo por WhatsApp?
+
+                <span>+</span>
+
+            </button>
+
+            <div class="respuesta">
+
+                Sí. Puedes utilizar el botón de WhatsApp que aparece
+                en la página para comunicarte directamente con
+                Licores Galileo y realizar tus consultas.
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= PREGUNTA 10 ================= -->
+
+        <div class="pregunta">
+
+            <button onclick="mostrarRespuesta(this)">
+
+                ¿Dónde puedo conocer las novedades de Licores Galileo?
+
+                <span>+</span>
+
+            </button>
+
+            <div class="respuesta">
+
+                Puedes visitar nuestra sección de "Noticias" para
+                conocer novedades, nuevos productos, capacitaciones
+                y otra información relacionada con Licores Galileo.
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= CONTACTO FINAL ================= -->
+
+        <div class="preguntas-contacto">
+
+            <h2>
+                ¿Tienes otra pregunta?
+            </h2>
+
+            <p>
+                Si no encontraste la respuesta que buscas,
+                puedes comunicarte directamente con nosotros.
+            </p>
+
+            <a
+                href="https://wa.me/50238419115"
+                target="_blank"
+                rel="noopener noreferrer">
+
+                Contactar por WhatsApp
+
+            </a>
+
+        </div>
+
 
     </section>
+
 
 
     <!-- ================= WHATSAPP ================= -->
@@ -385,61 +1005,130 @@
     </a>
 
 
+
     <!-- ================= FOOTER ================= -->
 
     <footer class="footer-galileo">
 
+
         <div class="footer-contenido">
+
 
             <h2>
                 Licores Galileo
             </h2>
 
+
             <p>
+
                 Síguenos en nuestras redes sociales y mantente al día
-                con nuestras promociones, nuevos productos y ofertas especiales.
+                con nuestras promociones, nuevos productos y ofertas
+                especiales.
+
             </p>
 
 
+
+            <!-- REDES SOCIALES -->
+
             <div class="redes-sociales">
+
 
                 <a
                     href="https://www.facebook.com/profile.php?id=61592198829186"
-                    target="_blank">
+                    target="_blank"
+                    rel="noopener noreferrer">
+
                     Facebook
+
                 </a>
+
 
                 <a
                     href="https://www.instagram.com/licoresgalileo/"
-                    target="_blank">
+                    target="_blank"
+                    rel="noopener noreferrer">
+
                     Instagram
+
                 </a>
+
 
                 <a
                     href="https://www.youtube.com/channel/UCom0V_9iwCmQDSCvG2pvzBA"
-                    target="_blank">
+                    target="_blank"
+                    rel="noopener noreferrer">
+
                     YouTube
+
                 </a>
+
 
                 <a href="mailto:licoresgalileo@gmail.com">
-                    Correo: licoresgalileo@gmail.com
+
+                    Correo:
+                    licoresgalileo@gmail.com
+
                 </a>
 
+
             </div>
+
 
 
             <hr>
 
 
+
             <p class="copyright">
-                © 2026 Licores Galileo | Todos los derechos reservados
+
+                © 2026 Licores Galileo |
+                Todos los derechos reservados
+
             </p>
 
+
         </div>
+
 
     </footer>
 
 
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+        function mostrarRespuesta(boton){
+
+            const pregunta = boton.parentElement;
+
+            const todasLasPreguntas =
+                document.querySelectorAll(".pregunta");
+
+
+            /* Cerrar las demás preguntas */
+
+            todasLasPreguntas.forEach(function(item){
+
+                if(item !== pregunta){
+
+                    item.classList.remove("activa");
+
+                }
+
+            });
+
+
+            /* Abrir o cerrar la seleccionada */
+
+            pregunta.classList.toggle("activa");
+
+        }
+
+    </script>
+
+
 </body>
+
 </html>
-```
