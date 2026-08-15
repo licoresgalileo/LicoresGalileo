@@ -8,7 +8,6 @@
     <link rel="icon" type="image/png" href="Desde.png">
 
     <style>
-        /* Estilos generales */
         body {
             background-color: #f4f4f4;
             color: #555;
@@ -152,6 +151,39 @@
             font-size: 14px;
             opacity: 0.9;
         }
+
+        /* BURBUJA WHATSAPP */
+        .whatsapp-float {
+            position: fixed;
+            right: 25px;
+            bottom: 25px;
+            width: 70px;
+            height: 70px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+            z-index: 99999;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .whatsapp-float img {
+            width: 42px;
+            height: 42px;
+            object-fit: contain;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+        }
+
+        .whatsapp-float:active {
+            transform: scale(0.96);
+        }
     </style>
 </head>
 
@@ -189,7 +221,7 @@
         <div class="invest-grid">
             <div class="card-invest">
                 <h2>Oportunidades</h2>
-                <p>Participa en la expansión de nuestras tiendas físicas y digitales, con retornos atractivos y sostenibles.</p>
+                <p>Participa en la expansión de nuestra tienda digital, con retornos atractivos y sostenibles.</p>
             </div>
             <div class="card-invest">
                 <h2>Beneficios</h2>
@@ -214,6 +246,11 @@
         </div>
         <p class="copyright">© 2026 Licores Galileo | Todos los derechos reservados</p>
     </footer>
+
+    <!-- BURBUJA WHATSAPP -->
+    <a href="https://wa.me/50238419115" class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    </a>
 
 </body>
 </html>
